@@ -106,16 +106,16 @@ void setup() {
 }
 
 void loop() {
-  led_on();
+  //led_on();
   messageNbr += 1;
   message = "radio tx " + String(messageNbr);
   loraSerial.println(message);
   str = loraSerial.readStringUntil('\n');
-  Serial.println(str + " - " + message);
-  str = loraSerial.readStringUntil('\n');
-  Serial.println(str);
-  led_off();
-  delay(200);
+  Serial.println(str + " - " + String(messageNbr));
+  //str = loraSerial.readStringUntil('\n');
+  //Serial.println(str);
+  //led_off();
+  delay(500);
 }
 
 void lora_autobaud()

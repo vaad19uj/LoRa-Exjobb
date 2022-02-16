@@ -49,6 +49,7 @@ void setup() {
   Serial.println(str);
   
   loraSerial.println("radio set freq 869100000");
+  //loraSerial.println("radio set freq 433100000");
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
   
@@ -101,6 +102,8 @@ void setup() {
   loraSerial.println("radio set bw 125");
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
+
+  led_on();
 }
 
 void loop() {
@@ -117,9 +120,8 @@ void loop() {
     }
     if ( str.indexOf("radio_rx") == 0 )
     {
-      toggle_led();
-      loraSerial.println("radio get snr");
-      str = loraSerial.readStringUntil('\n');
+      //loraSerial.println("radio get snr");
+      //str = loraSerial.readStringUntil('\n');
       Serial.println(str);
     }
     else
