@@ -48,7 +48,7 @@ void setup() {
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
   
-  loraSerial.println("radio set freq 869100000");
+  loraSerial.println("radio set freq 868100000");
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
   
@@ -106,7 +106,7 @@ void setup() {
 }
 
 void loop() {
-  //led_on();
+  led_on();
   messageNbr += 1;
   message = "radio tx " + String(messageNbr);
   loraSerial.println(message);
@@ -114,8 +114,8 @@ void loop() {
   Serial.println(str + " - " + String(messageNbr));
   //str = loraSerial.readStringUntil('\n');
   //Serial.println(str);
-  //led_off();
-  delay(500);
+  led_off();
+  delay(5000);
 }
 
 void lora_autobaud()
