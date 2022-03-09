@@ -157,7 +157,7 @@ bool sx1272 = true;
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate {DR1=1, DR2, DR3}
+enum dataRate {DR0=0, DR1, DR2}
 
 /*******************************************************************************
  *
@@ -344,11 +344,33 @@ long getSignalBandwidth() {
 }
 
 void setSignalBandwidth(long sbw){
-	//TODO
+	if(sbw <= 125E3) {
+		bw = 7;
+	} else if(sbw <= 250E3) {
+		bw = 8;
+	} else {
+		bw = 9;
+	}
+	
+	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0x0f) | ((bw << 4) & 0xf0));
+	setLdoFlag();
+}
+
+int getCodingRateDenominator() {
+	int cr = (readReg(REG_MODEM_CONFIG) >> 1) & 0x07;
+	int denominator = cr + 4;
+	return denominator;
 }
 
 void setCodingRate4(int denominator) {
-	//TODO
+	if(denominator < 5) {
+		denominator = 5;
+	} else if(denominator > 8) {
+		denominator = 8;
+	}
+	
+	int cr = denominator - 4;
+	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | (cr << 1) & 0x0e);
 }
 
 boolean receive(char *payload) {
@@ -476,29 +498,50 @@ int main (int argc, char *argv[]) {
         opmode(OPMODE_RX);
         printf("Listening at SF%i on %.6lf Mhz.\n", sf,(double)freq/1000000);
         printf("------------------\n");
-        while(1) {
-           if(nbrReceived == reqNbrReceived) {	
+		int testActive = 1;
+		int sf;
+		long bw;
+		int cr;
+        while(testActive) {
+			receivepacket(); 
+			delay(1);
+			if(nbrReceived == reqNbrReceived) {
 				dataRate += 1;
 				nbrReceived = 0;				
-				
 				switch (dataRate) 
 				{
 					// Program starts with first datarate config
-					case DR2:
-					// Config 
-					break;
+					case DR0:
+						// Config 
+						sf = 12;
+						bw = 125E3;
+						cr = 7;
+						break;
 										
-					case DR3:
-					// Config
-					break;
+					case DR1:
+						// Config
+						sf = 8;
+						bw = 250E3;
+						cr = 8;
+						break;
+						
+					case DR2:
+						// Config
+						sf = 7;
+						bw = 500E3;
+						cr = 5;
+						break;	
 										
 					default:
-					// Close program
-					break;
-				}				
+						// Close program
+						printf("Finished.");
+						testActive = 0;
+						break;
+				}
+				setSpreadingFactor(sf);
+				setSignalBandwidth(bw);
+				setCodingRate4(cr);
 			}
-			receivepacket(); 
-			delay(1);
 		}	
 
     return (0);
