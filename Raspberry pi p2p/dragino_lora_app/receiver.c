@@ -152,12 +152,10 @@ static const int CHANNEL = 0;
 
 char message[256];
 
-bool sx1272 = true;
-
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate {DR0=0, DR1, DR2}
+enum dataRate_t {DR0=0, DR1, DR2};
 
 /*******************************************************************************
  *
@@ -171,16 +169,19 @@ int dio0  = 7;
 int RST   = 0;
 
 // Set spreading factor (SF7 - SF12)
-sf_t sf = SF7;
+sf_t sf_init = SF7;
 
 // Set center frequency
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
 // Required Number of messages received
-int reqNbrReceived = 10
+int reqNbrReceived = 10;
 
 // Number of messages received
-int nbrReceived = reqNbrReceived;
+int nbrReceived = 10;
+
+// Set starting dataRate
+dataRate_t dataRate = DR0;
 
 byte hello[32] = "HELLO";
 
@@ -231,8 +232,7 @@ static void opmode (uint8_t mode) {
 
 static void opmodeLora() {
     uint8_t u = OPMODE_LORA;
-    if (sx1272 == false)
-        u |= 0x8;   // TBD: sx1276 high freq
+	u |= 0x8;   // TBD: sx1276 high freq
     writeReg(REG_OPMODE, u);
 }
 
@@ -272,15 +272,15 @@ void SetupLoRa()
 
     writeReg(REG_SYNC_WORD, 0x34); // LoRaWAN public sync word
 
-	if (sf == SF11 || sf == SF12) {
+	if (sf_init == SF11 || sf_init == SF12) {
 		writeReg(REG_MODEM_CONFIG3,0x0C);
 	} else {
 		writeReg(REG_MODEM_CONFIG3,0x04);
 	}
 	writeReg(REG_MODEM_CONFIG,0x72);
-	writeReg(REG_MODEM_CONFIG2,(sf<<4) | 0x04);
+	writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x04);
 
-    if (sf == SF10 || sf == SF11 || sf == SF12) {
+    if (sf_init == SF10 || sf_init == SF11 || sf_init == SF12) {
         writeReg(REG_SYMB_TIMEOUT_LSB,0x05);
     } else {
         writeReg(REG_SYMB_TIMEOUT_LSB,0x08);
@@ -333,7 +333,7 @@ void setSpreadingFactor(int sf) {
   setLdoFlag(); 
 }
 
-long getSignalBandwidth() {
+long getBandwidth() {
 	byte bw = readReg(REG_MODEM_CONFIG) >> 4;
 	switch(bw) {
 		case 7: return 125E3;
@@ -343,7 +343,9 @@ long getSignalBandwidth() {
 	return -1;
 }
 
-void setSignalBandwidth(long sbw){
+void setBandwidth(long sbw){
+	int bw;
+	
 	if(sbw <= 125E3) {
 		bw = 7;
 	} else if(sbw <= 250E3) {
@@ -496,40 +498,33 @@ int main (int argc, char *argv[]) {
         opmodeLora();
         opmode(OPMODE_STANDBY);
         opmode(OPMODE_RX);
-        printf("Listening at SF%i on %.6lf Mhz.\n", sf,(double)freq/1000000);
+        printf("Listening at SF%i on %.6lf Mhz.\n", sf_init,(double)freq/1000000);
         printf("------------------\n");
 		int testActive = 1;
-		int sf;
-		long bw;
-		int cr;
+		
         while(testActive) {
-			receivepacket(); 
-			delay(1);
-			if(nbrReceived == reqNbrReceived) {
-				dataRate += 1;
-				nbrReceived = 0;				
+			if(nbrReceived == reqNbrReceived) {				
 				switch (dataRate) 
 				{
-					// Program starts with first datarate config
 					case DR0:
-						// Config 
-						sf = 12;
-						bw = 125E3;
-						cr = 7;
+						// Config
+						setSpreadingFactor(12);
+						setSignalBandwidth(125E3);
+						setCodingRate4(7);
 						break;
 										
 					case DR1:
 						// Config
-						sf = 8;
-						bw = 250E3;
-						cr = 8;
+						setSpreadingFactor(8);
+						setSignalBandwidth(250E3);
+						setCodingRate4(8);
 						break;
 						
 					case DR2:
 						// Config
-						sf = 7;
-						bw = 500E3;
-						cr = 5;
+						setSpreadingFactor(7);
+						setSignalBandwidth(500E3);
+						setCodingRate4(5);
 						break;	
 										
 					default:
@@ -538,11 +533,18 @@ int main (int argc, char *argv[]) {
 						testActive = 0;
 						break;
 				}
-				setSpreadingFactor(sf);
-				setSignalBandwidth(bw);
-				setCodingRate4(cr);
+				if(testActive) {
+					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getSignalBandwidth(), getCodingRateDenominator());
+					
+					dataRate += 1;
+					nbrReceived = 0;
+					
+					printf("Waiting 10 seconds...");
+					delay(10000);
+				}
 			}
+			receivepacket(); 
+			delay(1);
 		}	
-
     return (0);
 }
