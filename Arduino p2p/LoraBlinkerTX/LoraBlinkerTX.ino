@@ -6,11 +6,16 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial loraSerial(10, 11);
+enum DATARATE {DR0, DR1, DR2};
 
 String str;
-int messageNbr = 0;
+String str1;
+String str2;
+String str3;
+int messageNbr = 10;
+int reqMessageNbr = 10;
 String message;
-
+enum DATARATE dataRate = 0;
 void setup() {
   //output LED pin
   pinMode(13, OUTPUT);
@@ -105,6 +110,7 @@ void setup() {
   Serial.println("starting loop");
 }
 
+/*
 void loop() {
   led_on();
   messageNbr += 1;
@@ -116,6 +122,85 @@ void loop() {
   //Serial.println(str);
   led_off();
   delay(5000);
+}
+*/
+
+void loop() {
+  led_on();
+
+  if(messageNbr == reqMessageNbr) {
+    switch(dataRate){
+      Case DR0:
+        loraSerial.println("radio set sf sf12");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println(str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println(str);
+    
+        loraSerial.println("radio set cr 4/7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println(str);
+        break;
+       
+       Case DR1:
+          loraSerial.println("radio set sf sf8");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+      
+          loraSerial.println("radio set bw 250");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+      
+          loraSerial.println("radio set cr 4/8");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+          break;
+
+        Case DR2:
+          loraSerial.println("radio set sf sf7");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+      
+          loraSerial.println("radio set bw 500");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+      
+          loraSerial.println("radio set cr 4/5");
+          str = loraSerial.readStringUntil('\n');
+          Serial.println(str);
+          break;
+
+          default:
+            Serial.println("Test finished.")
+            while(1) {
+              delay(1);
+            }
+            break;
+    }
+    loraSerial.println("radio get sf");
+    str1 = loraSerial.readStringUntil('\n');
+    loraSerial.println("radio get bw");
+    str2 = loraSerial.readStringUntil('\n');
+    loraSerial.println("radio get cr");
+    str3 = loraSerial.readStringUntil('\n');
+    Serial.println("sf: " + str1 + ", bw: " + str2 + ", cr: " + str3 + ".");
+
+    break;
+    Serial.println();
+    dataRate += 1;
+    messageNbr = 0;
+    Serial.println("Waiting 12 seconds before continuing with the next datarate...");
+    delay(12000);
+  }
+  message = "radio tx " + String(messageNbr);
+  loraSerial.println(message);
+  str = loraSerial.readStringUntil('\n');
+  Serial.println(str + " - " + String(messageNbr));
+  messageNbr += 1;
+  led_off();
+  delay(2000);
 }
 
 void lora_autobaud()
