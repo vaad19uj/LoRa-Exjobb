@@ -15,7 +15,7 @@ String str3;
 int messageNbr = 10;
 int reqMessageNbr = 10;
 String message;
-enum DATARATE dataRate = 0;
+int dataRate = 0;
 void setup() {
   //output LED pin
   pinMode(13, OUTPUT);
@@ -130,7 +130,7 @@ void loop() {
 
   if(messageNbr == reqMessageNbr) {
     switch(dataRate){
-      Case DR0:
+      case DR0:
         loraSerial.println("radio set sf sf12");
         str = loraSerial.readStringUntil('\n');
         Serial.println(str);
@@ -144,7 +144,7 @@ void loop() {
         Serial.println(str);
         break;
        
-       Case DR1:
+       case DR1:
           loraSerial.println("radio set sf sf8");
           str = loraSerial.readStringUntil('\n');
           Serial.println(str);
@@ -158,7 +158,7 @@ void loop() {
           Serial.println(str);
           break;
 
-        Case DR2:
+        case DR2:
           loraSerial.println("radio set sf sf7");
           str = loraSerial.readStringUntil('\n');
           Serial.println(str);
@@ -173,7 +173,8 @@ void loop() {
           break;
 
           default:
-            Serial.println("Test finished.")
+            Serial.println("Test finished.");
+            led_off();
             while(1) {
               delay(1);
             }
@@ -186,9 +187,7 @@ void loop() {
     loraSerial.println("radio get cr");
     str3 = loraSerial.readStringUntil('\n');
     Serial.println("sf: " + str1 + ", bw: " + str2 + ", cr: " + str3 + ".");
-
-    break;
-    Serial.println();
+    
     dataRate += 1;
     messageNbr = 0;
     Serial.println("Waiting 12 seconds before continuing with the next datarate...");
