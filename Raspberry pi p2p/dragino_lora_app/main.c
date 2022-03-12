@@ -294,23 +294,6 @@ void SetupLoRa()
 
 }
 
-void setLdoFlag(){
-	
-	// Section 4.1.1.5
-	long symbolDuration = 1000 / (getSignalBandwidth() / (1L << getSpreadingFactor()));
-	
-	// Section 4.1.1.6
-	uint8_t config3 = readReg(REG_MODEM_CONFIG3);
-	if(symbolDuration > 16) {
-		// set LowDataRateOptimize
-		config3 |= 1UL << 3;
-	} else {
-		//clear LowDataRateOptimize
-		config3 &= ~(1UL << 3);
-	}
-	writeReg(REG_MODEM_CONFIG3, config3);
-}	
-
 int getSpreadingFactor() {
 	return readReg(REG_MODEM_CONFIG2) >> 4;
 }
@@ -374,6 +357,23 @@ void setCodingRate4(int denominator) {
 	int cr = denominator - 4;
 	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | (cr << 1) & 0x0e);
 }
+
+void setLdoFlag(){
+	
+	// Section 4.1.1.5
+	long symbolDuration = 1000 / (getBandwidth() / (1L << getSpreadingFactor()));
+	
+	// Section 4.1.1.6
+	uint8_t config3 = readReg(REG_MODEM_CONFIG3);
+	if(symbolDuration > 16) {
+		// set LowDataRateOptimize
+		config3 |= 1UL << 3;
+	} else {
+		//clear LowDataRateOptimize
+		config3 &= ~(1UL << 3);
+	}
+	writeReg(REG_MODEM_CONFIG3, config3);
+}	
 
 boolean receive(char *payload) {
     // clear rxDone
@@ -509,21 +509,21 @@ int main (int argc, char *argv[]) {
 					case DR0:
 						// Config
 						setSpreadingFactor(12);
-						setSignalBandwidth(125E3);
+						setBandwidth(125E3);
 						setCodingRate4(7);
 						break;
 										
 					case DR1:
 						// Config
 						setSpreadingFactor(8);
-						setSignalBandwidth(250E3);
+						setBandwidth(250E3);
 						setCodingRate4(8);
 						break;
 						
 					case DR2:
 						// Config
 						setSpreadingFactor(7);
-						setSignalBandwidth(500E3);
+						setBandwidth(500E3);
 						setCodingRate4(5);
 						break;	
 										
@@ -536,7 +536,7 @@ int main (int argc, char *argv[]) {
 				if(testActive) {
 					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getSignalBandwidth(), getCodingRateDenominator());
 					
-					dataRate++;
+					dataRate += 1;
 					nbrReceived = 0;
 					
 					printf("Waiting 10 seconds...");
