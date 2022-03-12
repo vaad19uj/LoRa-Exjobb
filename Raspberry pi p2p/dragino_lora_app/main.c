@@ -503,6 +503,7 @@ int main (int argc, char *argv[]) {
 		int testActive = 1;
 		
         while(testActive == 1) {
+			printf("while?");
 			if(nbrReceived == reqNbrReceived) {
 				printf("if case?");
 				switch (dataRate) 
