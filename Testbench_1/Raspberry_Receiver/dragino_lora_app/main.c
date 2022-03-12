@@ -534,13 +534,13 @@ int main (int argc, char *argv[]) {
 						break;
 				}
 				if(testActive == 1) {
-					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					printf("sf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
 					nbrReceived = 0;
 					
-					printf("Waiting 10 seconds...");
-					delay(10000);
+					printf("Waiting 5 seconds...\n");
+					delay(5000);
 				}
 			}
 			receivepacket(); 

@@ -142,6 +142,11 @@ void loop() {
         loraSerial.println("radio set cr 4/7");
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
+        
+        loraSerial.println("radio tx 0");
+        loraSerial.readStringUntil('\n');
+        str = loraSerial.readStringUntil('\n');
+        Serial.println(str + " - first message weird");
         break;
        
        case DR1:
@@ -190,8 +195,8 @@ void loop() {
     
     dataRate += 1;
     messageNbr = 0;
-    Serial.println("Waiting 12 seconds before continuing with the next datarate...");
-    delay(12000);
+    Serial.println("Waiting 6 seconds before continuing with the next datarate...");
+    delay(6000);
   }
   message = "radio tx " + String(messageNbr);
   loraSerial.println(message);
