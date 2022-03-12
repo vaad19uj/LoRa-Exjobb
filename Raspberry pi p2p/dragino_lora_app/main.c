@@ -181,7 +181,7 @@ int reqNbrReceived = 10;
 int nbrReceived = 10;
 
 // Set starting dataRate
-dataRate_t dataRate = DR0;
+int dataRate = 0;
 
 byte hello[32] = "HELLO";
 
@@ -536,7 +536,7 @@ int main (int argc, char *argv[]) {
 				if(testActive) {
 					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
-					dataRate = dataRate + 1;
+					dataRate  += 1;
 					nbrReceived = 0;
 					
 					printf("Waiting 10 seconds...");
