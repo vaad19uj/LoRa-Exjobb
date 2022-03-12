@@ -298,24 +298,6 @@ int getSpreadingFactor() {
 	return readReg(REG_MODEM_CONFIG2) >> 4;
 }
 
-void setSpreadingFactor(int sf) {
-	if (sf < 6) {
-    sf = 6;
-  } else if (sf > 12) {
-    sf = 12;
-  }
-	if(sf == 6) {
-		writeReg(REG_DETECTION_OPTIMIZE, 0xc5);
-		writeReg(REG_DETECTION_THRESHOLD, 0x0c);
-	} else {
-		writeReg(REG_DETECTION_OPTIMIZE, 0x0c);
-		writeReg(REG_DETECTION_THRESHOLD, 0x0a);
-	}
-  
-  writeReg(REG_MODEM_CONFIG2, (readReg(REG_MODEM_CONFIG2) & 0x0f) | ((sf << 4) & 0xf0));
-  setLdoFlag(); 
-}
-
 long getBandwidth() {
 	byte bw = readReg(REG_MODEM_CONFIG) >> 4;
 	switch(bw) {
@@ -326,36 +308,10 @@ long getBandwidth() {
 	return -1;
 }
 
-void setBandwidth(long sbw){
-	int bw;
-	
-	if(sbw <= 125E3) {
-		bw = 7;
-	} else if(sbw <= 250E3) {
-		bw = 8;
-	} else {
-		bw = 9;
-	}
-	
-	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0x0f) | ((bw << 4) & 0xf0));
-	setLdoFlag();
-}
-
 int getCodingRateDenominator() {
 	int cr = (readReg(REG_MODEM_CONFIG) >> 1) & 0x07;
 	int denominator = cr + 4;
 	return denominator;
-}
-
-void setCodingRate4(int denominator) {
-	if(denominator < 5) {
-		denominator = 5;
-	} else if(denominator > 8) {
-		denominator = 8;
-	}
-	
-	int cr = denominator - 4;
-	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | (cr << 1) & 0x0e);
 }
 
 void setLdoFlag(){
@@ -374,6 +330,50 @@ void setLdoFlag(){
 	}
 	writeReg(REG_MODEM_CONFIG3, config3);
 }	
+
+void setSpreadingFactor(int sf) {
+	if (sf < 6) {
+    sf = 6;
+  } else if (sf > 12) {
+    sf = 12;
+  }
+	if(sf == 6) {
+		writeReg(REG_DETECTION_OPTIMIZE, 0xc5);
+		writeReg(REG_DETECTION_THRESHOLD, 0x0c);
+	} else {
+		writeReg(REG_DETECTION_OPTIMIZE, 0x0c);
+		writeReg(REG_DETECTION_THRESHOLD, 0x0a);
+	}
+  
+  writeReg(REG_MODEM_CONFIG2, (readReg(REG_MODEM_CONFIG2) & 0x0f) | ((sf << 4) & 0xf0));
+  setLdoFlag(); 
+}
+
+void setBandwidth(long sbw){
+	int bw;
+	
+	if(sbw <= 125E3) {
+		bw = 7;
+	} else if(sbw <= 250E3) {
+		bw = 8;
+	} else {
+		bw = 9;
+	}
+	
+	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0x0f) | ((bw << 4) & 0xf0));
+	setLdoFlag();
+}
+
+void setCodingRate4(int denominator) {
+	if(denominator < 5) {
+		denominator = 5;
+	} else if(denominator > 8) {
+		denominator = 8;
+	}
+	
+	int cr = denominator - 4;
+	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | (cr << 1) & 0x0e);
+}
 
 boolean receive(char *payload) {
     // clear rxDone
