@@ -529,7 +529,7 @@ int main (int argc, char *argv[]) {
 										
 					default:
 						// Close program
-						printf("Finished.");
+						printf("Finished.\n");
 						testActive = 0;
 						break;
 				}

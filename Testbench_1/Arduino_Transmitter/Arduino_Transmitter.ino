@@ -143,10 +143,12 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
         
+        /* Somehow first message was lost, CRC error
         loraSerial.println("radio tx 0");
         loraSerial.readStringUntil('\n');
         str = loraSerial.readStringUntil('\n');
         Serial.println(str + " - first message weird");
+        */
         break;
        
        case DR1:
