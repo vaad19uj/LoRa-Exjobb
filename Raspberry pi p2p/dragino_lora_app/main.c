@@ -372,7 +372,7 @@ void setCodingRate4(int denominator) {
 	}
 	
 	int cr = denominator - 4;
-	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | (cr << 1) & 0x0e);
+	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | ((cr << 1) & 0x0e));
 }
 
 boolean receive(char *payload) {
