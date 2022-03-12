@@ -534,9 +534,9 @@ int main (int argc, char *argv[]) {
 						break;
 				}
 				if(testActive) {
-					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getSignalBandwidth(), getCodingRateDenominator());
+					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
-					dataRate += 1;
+					dataRate = dataRate + 1;
 					nbrReceived = 0;
 					
 					printf("Waiting 10 seconds...");
