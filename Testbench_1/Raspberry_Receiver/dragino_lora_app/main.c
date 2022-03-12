@@ -503,9 +503,7 @@ int main (int argc, char *argv[]) {
 		int testActive = 1;
 		
         while(testActive == 1) {
-			printf("while?");
 			if(nbrReceived == reqNbrReceived) {
-				printf("if case?");
 				switch (dataRate) 
 				{
 					case DR0:
@@ -545,7 +543,6 @@ int main (int argc, char *argv[]) {
 					delay(10000);
 				}
 			}
-			printf("receive");
 			receivepacket(); 
 			delay(1);
 		}	
