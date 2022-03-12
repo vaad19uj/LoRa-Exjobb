@@ -133,43 +133,43 @@ void loop() {
       case DR0:
         loraSerial.println("radio set sf sf12");
         str = loraSerial.readStringUntil('\n');
-        Serial.println(str);
+        Serial.println("sf - " + str);
     
         loraSerial.println("radio set bw 125");
         str = loraSerial.readStringUntil('\n');
-        Serial.println(str);
+        Serial.println("bw - " + str);
     
         loraSerial.println("radio set cr 4/7");
         str = loraSerial.readStringUntil('\n');
-        Serial.println(str);
+        Serial.println("cr - " + str);
         break;
        
        case DR1:
           loraSerial.println("radio set sf sf8");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("sf - " + str);
       
           loraSerial.println("radio set bw 250");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("bw - " + str);
       
           loraSerial.println("radio set cr 4/8");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("cr - " + str);
           break;
 
         case DR2:
           loraSerial.println("radio set sf sf7");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("sf - " + str);
       
           loraSerial.println("radio set bw 500");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("bw - " + str);
       
           loraSerial.println("radio set cr 4/5");
           str = loraSerial.readStringUntil('\n');
-          Serial.println(str);
+          Serial.println("cr - " + str);
           break;
 
           default:
@@ -195,11 +195,12 @@ void loop() {
   }
   message = "radio tx " + String(messageNbr);
   loraSerial.println(message);
+  loraSerial.readStringUntil('\n');
   str = loraSerial.readStringUntil('\n');
   Serial.println(str + " - " + String(messageNbr));
   messageNbr += 1;
   led_off();
-  delay(2000);
+  delay(1000);
 }
 
 void lora_autobaud()
