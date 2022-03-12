@@ -502,8 +502,9 @@ int main (int argc, char *argv[]) {
         printf("------------------\n");
 		int testActive = 1;
 		
-        while(testActive) {
-			if(nbrReceived == reqNbrReceived) {				
+        while(testActive == 1) {
+			if(nbrReceived == reqNbrReceived) {
+				printf("if case?");
 				switch (dataRate) 
 				{
 					case DR0:
@@ -533,7 +534,7 @@ int main (int argc, char *argv[]) {
 						testActive = 0;
 						break;
 				}
-				if(testActive) {
+				if(testActive == 1) {
 					printf("sf = %i, bw = %ld, cr = %i.", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
