@@ -524,7 +524,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(12);
 						setBandwidth(125E3);
 						setCodingRate4(7);
-						dataRateTag = "DR0";
+						datarateTag = "DR0";
 						break;
 										
 					case DR1:
@@ -532,7 +532,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(8);
 						setBandwidth(250E3);
 						setCodingRate4(8);
-						dataRateTag = "DR1";
+						datarateTag = "DR1";
 						break;
 						
 					case DR2:
@@ -540,7 +540,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(500E3);
 						setCodingRate4(5);
-						dataRateTag = "DR2";
+						datarateTag = "DR2";
 						break;	
 										
 					default:
@@ -552,7 +552,7 @@ int main (int argc, char *argv[]) {
 				}
 				if(testActive == 1) {
 					printf("sf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					fprintf(filePointer, "%s: sf = %i, bw = %ld, cr = %i.\n", dataRateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					fprintf(filePointer, "%s: sf = %i, bw = %ld, cr = %i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
 					nbrReceived = 0;
