@@ -6,7 +6,7 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial loraSerial(10, 11);
-enum DATARATE {DR0, DR1, DR2};
+enum DATARATE {DR0, DR1, DR2, DR3, DR4, DR5, DR6, DR7, DR8, DR9, DR10};
 
 String str;
 String str1;

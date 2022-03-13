@@ -155,7 +155,7 @@ char message[256];
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate_t {DR0=0, DR1, DR2};
+enum dataRate_t {DR0=0, DR1, DR2, DR3, DR4, DR5, DR6, DR7, DR8, DR9, DR10};
 
 /*******************************************************************************
  *
