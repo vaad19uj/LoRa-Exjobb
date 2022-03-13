@@ -12,8 +12,8 @@ String str;
 String str1;
 String str2;
 String str3;
-int messageNbr = 10;
-int reqMessageNbr = 10;
+int messageNbr = 12;
+int reqMessageNbr = 12;
 String message;
 int dataRate = 0;
 void setup() {
