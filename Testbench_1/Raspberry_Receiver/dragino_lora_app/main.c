@@ -524,7 +524,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(12);
 						setBandwidth(125E3);
 						setCodingRate4(7);
-						datarateTag = "DR0";
+						strcpy(datarateTag, "DR0");
 						break;
 										
 					case DR1:
@@ -532,7 +532,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(8);
 						setBandwidth(250E3);
 						setCodingRate4(8);
-						datarateTag = "DR1";
+						strcpy(datarateTag, "DR1");
 						break;
 						
 					case DR2:
@@ -540,7 +540,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(500E3);
 						setCodingRate4(5);
-						datarateTag = "DR2";
+						strcpy(datarateTag, "DR2");
 						break;	
 										
 					default:
