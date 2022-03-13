@@ -440,7 +440,7 @@ void receivepacket() {
 			fprintf(filePointer, "Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
             fprintf(filePointer, "SNR: %li, ", SNR);
-            fprintf(filePointer, "Length: %i", (int)receivedbytes);
+            fprintf(filePointer, "Length: %i\n", (int)receivedbytes);
         } // received a message
 
     } // dio0=1
@@ -521,26 +521,90 @@ int main (int argc, char *argv[]) {
 						// Config
 						setSpreadingFactor(12);
 						setBandwidth(125E3);
-						setCodingRate4(7);
+						setCodingRate4(5);
 						strcpy(datarateTag, "DR0");
 						break;
 										
 					case DR1:
 						// Config
-						setSpreadingFactor(8);
-						setBandwidth(250E3);
-						setCodingRate4(8);
+						setSpreadingFactor(11);
+						setBandwidth(125E3);
+						setCodingRate4(5);
 						strcpy(datarateTag, "DR1");
 						break;
 						
 					case DR2:
+						// Config
+						setSpreadingFactor(10);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR3:
+						// Config
+						setSpreadingFactor(9);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR4:
+						// Config
+						setSpreadingFactor(8);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR5:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR6:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(250E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR7:
 						// Config
 						setSpreadingFactor(7);
 						setBandwidth(500E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR2");
 						break;	
-										
+
+					case DR8:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(6);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR9:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(7);
+						strcpy(datarateTag, "DR2");
+						break;	
+
+					case DR10:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(8);
+						strcpy(datarateTag, "DR2");
+						break;	
+				
 					default:
 						// Close program
 						printf("Finished.\n");
