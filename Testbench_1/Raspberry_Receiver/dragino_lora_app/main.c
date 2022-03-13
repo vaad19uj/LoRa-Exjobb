@@ -441,8 +441,6 @@ void receivepacket() {
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
             fprintf(filePointer, "SNR: %li, ", SNR);
             fprintf(filePointer, "Length: %i", (int)receivedbytes);
-            fprintf(filePointer, "\n");
-            fprintf(filePointer, "Payload: %s\n", message);
         } // received a message
 
     } // dio0=1
@@ -509,7 +507,7 @@ int main (int argc, char *argv[]) {
         opmodeLora();
         opmode(OPMODE_STANDBY);
         opmode(OPMODE_RX);
-        printf("Listening at SF%i on %.6lf Mhz.\n", sf_init,(double)freq/1000000);
+        printf("Setup finished.");
         printf("------------------\n");
 		int testActive = 1;
 		char datarateTag[4];
@@ -551,14 +549,14 @@ int main (int argc, char *argv[]) {
 						break;
 				}
 				if(testActive == 1) {
-					printf("sf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					fprintf(filePointer, "%s: sf = %i, bw = %ld, cr = %i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					printf("\n\nsf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = %i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
 					nbrReceived = 0;
 					
-					printf("Waiting 5 seconds...\n");
-					fprintf(filePointer, "Waiting 5 seconds...\n");
+					printf("Waiting 5 seconds...\n\n");
+					fprintf(filePointer, "Waiting 5 seconds...\n\n");
 					delay(5000);
 				}
 			}
