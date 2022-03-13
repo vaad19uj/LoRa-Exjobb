@@ -183,6 +183,9 @@ int nbrReceived = 10;
 // Set starting dataRate
 int dataRate = 0;
 
+//Pointer to file where data is saved
+FILE *filePointer;
+
 byte hello[32] = "HELLO";
 
 void die(const char *s)
@@ -432,6 +435,14 @@ void receivepacket() {
             printf("Length: %i", (int)receivedbytes);
             printf("\n");
             printf("Payload: %s\n", message);
+			
+			fprintf(filePointer, "%i: ", nbrReceived);
+			fprintf(filePointer, "Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
+            fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
+            fprintf(filePointer, "SNR: %li, ", SNR);
+            fprintf(filePointer, "Length: %i", (int)receivedbytes);
+            fprintf(filePointer, "\n");
+            fprintf(filePointer, "Payload: %s\n", message);
         } // received a message
 
     } // dio0=1
@@ -501,6 +512,8 @@ int main (int argc, char *argv[]) {
         printf("Listening at SF%i on %.6lf Mhz.\n", sf_init,(double)freq/1000000);
         printf("------------------\n");
 		int testActive = 1;
+		char datarateTag[4];
+		filePointer = fopen("Testbench1_data.txt", "w");
 		
         while(testActive == 1) {
 			if(nbrReceived == reqNbrReceived) {
@@ -511,6 +524,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(12);
 						setBandwidth(125E3);
 						setCodingRate4(7);
+						dataRateTag = "DR0";
 						break;
 										
 					case DR1:
@@ -518,6 +532,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(8);
 						setBandwidth(250E3);
 						setCodingRate4(8);
+						dataRateTag = "DR1";
 						break;
 						
 					case DR2:
@@ -525,21 +540,25 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(500E3);
 						setCodingRate4(5);
+						dataRateTag = "DR2";
 						break;	
 										
 					default:
 						// Close program
 						printf("Finished.\n");
+						fclose(filePointer);
 						testActive = 0;
 						break;
 				}
 				if(testActive == 1) {
 					printf("sf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					fprintf(filePointer, "%s: sf = %i, bw = %ld, cr = %i.\n", dataRateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
 					nbrReceived = 0;
 					
 					printf("Waiting 5 seconds...\n");
+					fprintf(filePointer, "Waiting 5 seconds...\n");
 					delay(5000);
 				}
 			}
