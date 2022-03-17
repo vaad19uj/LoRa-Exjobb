@@ -386,9 +386,10 @@ boolean receive(char *payload) {
     int irqflags = readReg(REG_IRQ_FLAGS);
 	
 	//  payload crc: 0x20
+	//FulkodAB
 	if((irqflags & 0x20) == 0x20)
     {
-        printf("CRC error");
+        printf("(CRC error)  -  ");
         writeReg(REG_IRQ_FLAGS, 0x20);
     }
 
@@ -568,7 +569,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(9);
 						setBandwidth(125E3);
 						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR3");
 						break;	
 
 					case DR4:
@@ -576,7 +577,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(8);
 						setBandwidth(125E3);
 						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR4");
 						break;	
 
 					case DR5:
@@ -584,7 +585,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(125E3);
 						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR5");
 						break;	
 
 					case DR6:
@@ -592,7 +593,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(250E3);
 						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR6");
 						break;	
 
 					case DR7:
@@ -600,7 +601,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(500E3);
 						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR7");
 						break;	
 
 					case DR8:
@@ -608,7 +609,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(125E3);
 						setCodingRate4(6);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR8");
 						break;	
 
 					case DR9:
@@ -616,7 +617,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(125E3);
 						setCodingRate4(7);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR9");
 						break;	
 
 					case DR10:
@@ -624,7 +625,7 @@ int main (int argc, char *argv[]) {
 						setSpreadingFactor(7);
 						setBandwidth(125E3);
 						setCodingRate4(8);
-						strcpy(datarateTag, "DR2");
+						strcpy(datarateTag, "DR10");
 						break;	
 				
 					default:
