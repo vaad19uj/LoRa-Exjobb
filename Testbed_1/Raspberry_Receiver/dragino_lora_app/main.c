@@ -384,7 +384,27 @@ boolean receive(char *payload) {
     writeReg(REG_IRQ_FLAGS, 0x40);
 
     int irqflags = readReg(REG_IRQ_FLAGS);
+	
+	//  payload crc: 0x20
+	if((irqflags & 0x20) == 0x20)
+    {
+        printf("CRC error");
+        writeReg(REG_IRQ_FLAGS, 0x20);
+    }
 
+	byte currentAddr = readReg(REG_FIFO_RX_CURRENT_ADDR);
+	byte receivedCount = readReg(REG_RX_NB_BYTES);
+	receivedbytes = receivedCount;
+
+	writeReg(REG_FIFO_ADDR_PTR, currentAddr);
+
+	for(int i = 0; i < receivedCount; i++)
+	{
+		payload[i] = (char)readReg(REG_FIFO);
+    }
+
+
+/*
     //  payload crc: 0x20
     if((irqflags & 0x20) == 0x20)
     {
@@ -404,6 +424,7 @@ boolean receive(char *payload) {
             payload[i] = (char)readReg(REG_FIFO);
         }
     }
+*/
     return true;
 }
 

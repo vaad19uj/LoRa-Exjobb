@@ -83,7 +83,7 @@ void setup() {
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
   
-  loraSerial.println("radio set crc off");
+  loraSerial.println("radio set crc on");
   str = loraSerial.readStringUntil('\n');
   Serial.println(str);
   
