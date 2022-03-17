@@ -281,7 +281,8 @@ void SetupLoRa()
 		writeReg(REG_MODEM_CONFIG3,0x04);
 	}
 	writeReg(REG_MODEM_CONFIG,0x72);
-	writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x04);
+	//writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x04);
+	writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x00);
 
     if (sf_init == SF10 || sf_init == SF11 || sf_init == SF12) {
         writeReg(REG_SYMB_TIMEOUT_LSB,0x05);
