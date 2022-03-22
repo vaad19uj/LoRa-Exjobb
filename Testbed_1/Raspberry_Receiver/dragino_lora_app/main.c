@@ -175,10 +175,10 @@ sf_t sf_init = SF8;
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
 // Required Number of messages received
-int reqNbrReceived = 10;
+int reqNbrReceived = 20;
 
 // Number of messages received
-int nbrReceived = 10;
+int nbrReceived = 20;
 
 // Set starting dataRate
 int dataRate = 0;
@@ -640,7 +640,7 @@ int main (int argc, char *argv[]) {
 						break;
 				}
 				if(testActive == 1) {
-					printf("\n\nsf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					printf("\n\nsf = %i, bw = %ld, cr = 4/%i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = %i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
@@ -648,7 +648,7 @@ int main (int argc, char *argv[]) {
 					
 					printf("Waiting 5 seconds...\n\n");
 					fprintf(filePointer, "Waiting 5 seconds...\n\n");
-					delay(5000);
+					delay(1000);
 				}
 			}
 			receivepacket(); 
