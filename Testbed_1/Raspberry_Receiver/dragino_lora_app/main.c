@@ -175,10 +175,10 @@ sf_t sf_init = SF8;
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
 // Required Number of messages received
-int reqNbrReceived = 10;
+int reqNbrReceived = 20;
 
 // Number of messages received
-int nbrReceived = 10;
+int nbrReceived = 20;
 
 // Set starting dataRate
 int dataRate = 0;
@@ -187,6 +187,8 @@ int dataRate = 0;
 FILE *filePointer;
 
 byte hello[32] = "HELLO";
+
+char crcError[10];
 
 void die(const char *s)
 {
@@ -389,9 +391,11 @@ boolean receive(char *payload) {
 	//FulkodAB
 	if((irqflags & 0x20) == 0x20)
     {
-        printf("(CRC error)  -  ");
+        strcpy(crcError, "(CRC)");
         writeReg(REG_IRQ_FLAGS, 0x20);
-    }
+    } else {
+		strcpy(crcError, "");
+	}
 
 	byte currentAddr = readReg(REG_FIFO_RX_CURRENT_ADDR);
 	byte receivedCount = readReg(REG_RX_NB_BYTES);
@@ -452,7 +456,7 @@ void receivepacket() {
             }
 			rssicorr = 157;
 
-            printf("Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
+            printf("Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
             /*
 			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
             printf("SNR: %li, ", SNR);
@@ -462,12 +466,12 @@ void receivepacket() {
             printf("Payload: %s\n", message);
 			
 			fprintf(filePointer, "%i: ", nbrReceived);
+			fprintf(filePointer, "Packet RSSI: %d    %s\n", readReg(0x1A)-rssicorr, crcError);
 			/*
-			fprintf(filePointer, "Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
             fprintf(filePointer, "SNR: %li, ", SNR);
-			*/
             fprintf(filePointer, "Length: %i\n", (int)receivedbytes);
+			*/
         } // received a message
 
     } // dio0=1
@@ -640,15 +644,14 @@ int main (int argc, char *argv[]) {
 						break;
 				}
 				if(testActive == 1) {
-					printf("\n\nsf = %i, bw = %ld, cr = %i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					printf("\n\nsf = %i, bw = %ld, cr = 4/%i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = %i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					dataRate  += 1;
 					nbrReceived = 0;
-					
-					printf("Waiting 5 seconds...\n\n");
-					fprintf(filePointer, "Waiting 5 seconds...\n\n");
-					delay(5000);
+					printf("Waiting 1 seconds...\n\n");
+					fprintf(filePointer, "Waiting 1 seconds...\n\n");
+					delay(1000);
 				}
 			}
 			receivepacket(); 
