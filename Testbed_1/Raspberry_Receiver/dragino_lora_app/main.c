@@ -453,16 +453,20 @@ void receivepacket() {
 			rssicorr = 157;
 
             printf("Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
-            printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
+            /*
+			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
             printf("SNR: %li, ", SNR);
             printf("Length: %i", (int)receivedbytes);
+			*/
             printf("\n");
             printf("Payload: %s\n", message);
 			
 			fprintf(filePointer, "%i: ", nbrReceived);
+			/*
 			fprintf(filePointer, "Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
             fprintf(filePointer, "SNR: %li, ", SNR);
+			*/
             fprintf(filePointer, "Length: %i\n", (int)receivedbytes);
         } // received a message
 
@@ -534,7 +538,7 @@ int main (int argc, char *argv[]) {
         printf("------------------\n");
 		int testActive = 1;
 		char datarateTag[4];
-		filePointer = fopen("Testbench1_data.txt", "w");
+		filePointer = fopen("Testbed1_data.txt", "w");
 		
         while(testActive == 1) {
 			if(nbrReceived == reqNbrReceived) {
