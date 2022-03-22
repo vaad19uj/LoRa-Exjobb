@@ -537,7 +537,7 @@ int main (int argc, char *argv[]) {
         printf("Setup finished.");
         printf("------------------\n");
 		int testActive = 1;
-		char datarateTag[4];
+		char datarateTag[5];
 		filePointer = fopen("Testbed1_data.txt", "w");
 		
         while(testActive == 1) {
