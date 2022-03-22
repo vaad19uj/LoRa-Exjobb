@@ -466,7 +466,7 @@ void receivepacket() {
             printf("Payload: %s\n", message);
 			
 			fprintf(filePointer, "%i: ", nbrReceived);
-			fprintf(filePointer, "Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
+			fprintf(filePointer, "Packet RSSI: %d    %s\n", readReg(0x1A)-rssicorr, crcError);
 			/*
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
             fprintf(filePointer, "SNR: %li, ", SNR);
