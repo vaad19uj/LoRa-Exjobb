@@ -12,8 +12,8 @@ String str;
 String str1;
 String str2;
 String str3;
-int messageNbr = 12;
-int reqMessageNbr = 12;
+int messageNbr = 20;
+int reqMessageNbr = 20;
 String message;
 int dataRate = 0;
 void setup() {
@@ -304,7 +304,7 @@ void loop() {
     dataRate += 1;
     messageNbr = 0;
     Serial.println("Waiting 6 seconds before continuing with the next datarate...");
-    delay(6000);
+    delay(2000);
   }
   //message = "radio tx " + String(messageNbr);
   loraSerial.println("radio tx 0");
@@ -313,7 +313,7 @@ void loop() {
   Serial.println(str + " - " + String(messageNbr));
   messageNbr += 1;
   led_off();
-  delay(1000);
+  delay(100);
 }
 
 void lora_autobaud()
