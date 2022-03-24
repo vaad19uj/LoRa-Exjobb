@@ -46,8 +46,6 @@
 #define REG_HOP_PERIOD              0x24
 #define REG_SYNC_WORD				0x39
 #define REG_VERSION	  				0x42
-#define REG_DETECTION_OPTIMIZE		0x31
-#define REG_DETECTION_THRESHOLD		0x37
 
 #define PAYLOAD_LENGTH              0x40
 
@@ -152,10 +150,11 @@ static const int CHANNEL = 0;
 
 char message[256];
 
+bool sx1272 = true;
+
 byte receivedbytes;
 
-enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate_t {DR0=0, DR1, DR2, DR3, DR4, DR5, DR6, DR7, DR8, DR9, DR10};
+enum sf_t { SF7=7, SF8, SF9, SF10, SF11, SF12 };
 
 /*******************************************************************************
  *
@@ -169,26 +168,12 @@ int dio0  = 7;
 int RST   = 0;
 
 // Set spreading factor (SF7 - SF12)
-sf_t sf_init = SF8;
+sf_t sf = SF7;
 
 // Set center frequency
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
-// Required Number of messages received
-int reqNbrReceived = 50;
-
-// Number of messages received
-int nbrReceived = 50;
-
-// Set starting dataRate
-int dataRate = 0;
-
-//Pointer to file where data is saved
-FILE *filePointer;
-
 byte hello[32] = "HELLO";
-
-char crcError[10];
 
 void die(const char *s)
 {
@@ -237,7 +222,8 @@ static void opmode (uint8_t mode) {
 
 static void opmodeLora() {
     uint8_t u = OPMODE_LORA;
-	u |= 0x8;   // TBD: sx1276 high freq
+    if (sx1272 == false)
+        u |= 0x8;   // TBD: sx1276 high freq
     writeReg(REG_OPMODE, u);
 }
 
@@ -252,20 +238,27 @@ void SetupLoRa()
 
     byte version = readReg(REG_VERSION);
 
-	// sx1276?
-	digitalWrite(RST, LOW);
-	delay(100);
-	digitalWrite(RST, HIGH);
-	delay(100);
-	version = readReg(REG_VERSION);
-	if (version == 0x12) {
-		// sx1276
-		printf("SX1276 detected, starting.\n");
-	} else {
-		printf("Unrecognized transceiver.\n");
-		//printf("Version: 0x%x\n",version);
-		exit(1);
-	}
+    if (version == 0x22) {
+        // sx1272
+        printf("SX1272 detected, starting.\n");
+        sx1272 = true;
+    } else {
+        // sx1276?
+        digitalWrite(RST, LOW);
+        delay(100);
+        digitalWrite(RST, HIGH);
+        delay(100);
+        version = readReg(REG_VERSION);
+        if (version == 0x12) {
+            // sx1276
+            printf("SX1276 detected, starting.\n");
+            sx1272 = false;
+        } else {
+            printf("Unrecognized transceiver.\n");
+            //printf("Version: 0x%x\n",version);
+            exit(1);
+        }
+    }
 
     opmode(OPMODE_SLEEP);
 
@@ -277,16 +270,24 @@ void SetupLoRa()
 
     writeReg(REG_SYNC_WORD, 0x34); // LoRaWAN public sync word
 
-	if (sf_init == SF11 || sf_init == SF12) {
-		writeReg(REG_MODEM_CONFIG3,0x0C);
-	} else {
-		writeReg(REG_MODEM_CONFIG3,0x04);
-	}
-	writeReg(REG_MODEM_CONFIG,0x72);
-	//writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x04);
-	writeReg(REG_MODEM_CONFIG2,(sf_init<<4) | 0x00);
+    if (sx1272) {
+        if (sf == SF11 || sf == SF12) {
+            writeReg(REG_MODEM_CONFIG,0x0B);
+        } else {
+            writeReg(REG_MODEM_CONFIG,0x0A);
+        }
+        writeReg(REG_MODEM_CONFIG2,(sf<<4) | 0x04);
+    } else {
+        if (sf == SF11 || sf == SF12) {
+            writeReg(REG_MODEM_CONFIG3,0x0C);
+        } else {
+            writeReg(REG_MODEM_CONFIG3,0x04);
+        }
+        writeReg(REG_MODEM_CONFIG,0x72);
+        writeReg(REG_MODEM_CONFIG2,(sf<<4) | 0x04);
+    }
 
-    if (sf_init == SF10 || sf_init == SF11 || sf_init == SF12) {
+    if (sf == SF10 || sf == SF11 || sf == SF12) {
         writeReg(REG_SYMB_TIMEOUT_LSB,0x05);
     } else {
         writeReg(REG_SYMB_TIMEOUT_LSB,0x08);
@@ -300,116 +301,12 @@ void SetupLoRa()
 
 }
 
-int getSpreadingFactor() {
-	return readReg(REG_MODEM_CONFIG2) >> 4;
-}
-
-long getBandwidth() {
-	byte bw = readReg(REG_MODEM_CONFIG) >> 4;
-	switch(bw) {
-		case 7: return 125E3;
-		case 8: return 250E3;
-		case 9: return 500E3;
-	}
-	return -1;
-}
-
-int getCodingRateDenominator() {
-	int cr = (readReg(REG_MODEM_CONFIG) >> 1) & 0x07;
-	int denominator = cr + 4;
-	return denominator;
-}
-
-void setLdoFlag(){
-	
-	// Section 4.1.1.5
-	long symbolDuration = 1000 / (getBandwidth() / (1L << getSpreadingFactor()));
-	
-	// Section 4.1.1.6
-	uint8_t config3 = readReg(REG_MODEM_CONFIG3);
-	if(symbolDuration > 16) {
-		// set LowDataRateOptimize
-		config3 |= 1UL << 3;
-	} else {
-		//clear LowDataRateOptimize
-		config3 &= ~(1UL << 3);
-	}
-	writeReg(REG_MODEM_CONFIG3, config3);
-}	
-
-void setSpreadingFactor(int sf) {
-	if (sf < 6) {
-    sf = 6;
-  } else if (sf > 12) {
-    sf = 12;
-  }
-	if(sf == 6) {
-		writeReg(REG_DETECTION_OPTIMIZE, 0xc5);
-		writeReg(REG_DETECTION_THRESHOLD, 0x0c);
-	} else {
-		writeReg(REG_DETECTION_OPTIMIZE, 0x0c);
-		writeReg(REG_DETECTION_THRESHOLD, 0x0a);
-	}
-  
-  writeReg(REG_MODEM_CONFIG2, (readReg(REG_MODEM_CONFIG2) & 0x0f) | ((sf << 4) & 0xf0));
-  setLdoFlag(); 
-}
-
-void setBandwidth(long sbw){
-	int bw;
-	
-	if(sbw <= 125E3) {
-		bw = 7;
-	} else if(sbw <= 250E3) {
-		bw = 8;
-	} else {
-		bw = 9;
-	}
-	
-	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0x0f) | ((bw << 4) & 0xf0));
-	setLdoFlag();
-}
-
-void setCodingRate4(int denominator) {
-	if(denominator < 5) {
-		denominator = 5;
-	} else if(denominator > 8) {
-		denominator = 8;
-	}
-	
-	int cr = denominator - 4;
-	writeReg(REG_MODEM_CONFIG, (readReg(REG_MODEM_CONFIG) & 0xf1) | ((cr << 1) & 0x0e));
-}
-
 boolean receive(char *payload) {
     // clear rxDone
     writeReg(REG_IRQ_FLAGS, 0x40);
 
     int irqflags = readReg(REG_IRQ_FLAGS);
-	
-	//  payload crc: 0x20
-	//FulkodAB
-	if((irqflags & 0x20) == 0x20)
-    {
-        strcpy(crcError, "(CRC)");
-        writeReg(REG_IRQ_FLAGS, 0x20);
-    } else {
-		strcpy(crcError, "");
-	}
 
-	byte currentAddr = readReg(REG_FIFO_RX_CURRENT_ADDR);
-	byte receivedCount = readReg(REG_RX_NB_BYTES);
-	receivedbytes = receivedCount;
-
-	writeReg(REG_FIFO_ADDR_PTR, currentAddr);
-
-	for(int i = 0; i < receivedCount; i++)
-	{
-		payload[i] = (char)readReg(REG_FIFO);
-    }
-
-
-/*
     //  payload crc: 0x20
     if((irqflags & 0x20) == 0x20)
     {
@@ -429,7 +326,6 @@ boolean receive(char *payload) {
             payload[i] = (char)readReg(REG_FIFO);
         }
     }
-*/
     return true;
 }
 
@@ -441,7 +337,6 @@ void receivepacket() {
     if(digitalRead(dio0) == 1)
     {
         if(receive(message)) {
-			nbrReceived += 1;
             byte value = readReg(REG_PKT_SNR_VALUE);
             if( value & 0x80 ) // The SNR sign bit is 1
             {
@@ -454,30 +349,27 @@ void receivepacket() {
                 // Divide by 4
                 SNR = ( value & 0xFF ) >> 2;
             }
-			rssicorr = 157;
+            
+            if (sx1272) {
+                rssicorr = 139;
+            } else {
+                rssicorr = 157;
+            }
 
-            printf("Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
-            /*
-			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
+            printf("Packet RSSI: %d, ", readReg(0x1A)-rssicorr);
+            printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
             printf("SNR: %li, ", SNR);
             printf("Length: %i", (int)receivedbytes);
-			*/
             printf("\n");
             printf("Payload: %s\n", message);
-			
-			fprintf(filePointer, "%i: ", nbrReceived);
-			fprintf(filePointer, "Packet RSSI: %d    %s\n", readReg(0x1A)-rssicorr, crcError);
-			/*
-            fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
-            fprintf(filePointer, "SNR: %li, ", SNR);
-            fprintf(filePointer, "Length: %i\n", (int)receivedbytes);
-			*/
+
         } // received a message
 
     } // dio0=1
 }
 
 static void configPower (int8_t pw) {
+    if (sx1272 == false) {
         // no boost used for now
         if(pw >= 17) {
             pw = 15;
@@ -487,6 +379,16 @@ static void configPower (int8_t pw) {
         // check board type for BOOST pin
         writeReg(RegPaConfig, (uint8_t)(0x80|(pw&0xf)));
         writeReg(RegPaDac, readReg(RegPaDac)|0x4);
+
+    } else {
+        // set PA config (2-17 dBm using PA_BOOST)
+        if(pw > 17) {
+            pw = 17;
+        } else if(pw < 2) {
+            pw = 2;
+        }
+        writeReg(RegPaConfig, (uint8_t)(0x80|(pw-2)));
+    }
 }
 
 
@@ -525,6 +427,11 @@ void txlora(byte *frame, byte datalen) {
 
 int main (int argc, char *argv[]) {
 
+    if (argc < 2) {
+        printf ("Usage: argv[0] sender|rec [message]\n");
+        exit(1);
+    }
+
     wiringPiSetup () ;
     pinMode(ssPin, OUTPUT);
     pinMode(dio0, INPUT);
@@ -534,128 +441,39 @@ int main (int argc, char *argv[]) {
 
     SetupLoRa();
 
+    if (!strcmp("sender", argv[1])) {
+        opmodeLora();
+        // enter standby mode (required for FIFO loading))
+        opmode(OPMODE_STANDBY);
+
+        writeReg(RegPaRamp, (readReg(RegPaRamp) & 0xF0) | 0x08); // set PA ramp-up time 50 uSec
+
+        configPower(23);
+
+        printf("Send packets at SF%i on %.6lf Mhz.\n", sf,(double)freq/1000000);
+        printf("------------------\n");
+
+        if (argc > 2)
+            strncpy((char *)hello, argv[2], sizeof(hello));
+
+        while(1) {
+            txlora(hello, strlen((char *)hello));
+            delay(5000);
+        }
+    } else {
+
         // radio init
         opmodeLora();
         opmode(OPMODE_STANDBY);
         opmode(OPMODE_RX);
-        printf("Setup finished.");
+        printf("Listening at SF%i on %.6lf Mhz.\n", sf,(double)freq/1000000);
         printf("------------------\n");
-		int testActive = 1;
-		char datarateTag[5];
-		filePointer = fopen("Testbed1_data.txt", "w");
-		
-        while(testActive == 1) {
-			if(nbrReceived == reqNbrReceived) {
-				switch (dataRate) 
-				{
-					case DR0:
-						// Config
-						setSpreadingFactor(12);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR0");
-						break;
-										
-					case DR1:
-						// Config
-						setSpreadingFactor(11);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR1");
-						break;
-						
-					case DR2:
-						// Config
-						setSpreadingFactor(10);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
-						break;	
+        while(1) {
+            receivepacket(); 
+            delay(1);
+        }
 
-					case DR3:
-						// Config
-						setSpreadingFactor(9);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR3");
-						break;	
+    }
 
-					case DR4:
-						// Config
-						setSpreadingFactor(8);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR4");
-						break;	
-
-					case DR5:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR5");
-						break;	
-
-					case DR6:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(250E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR6");
-						break;	
-
-					case DR7:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(500E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR7");
-						break;	
-
-					case DR8:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(6);
-						strcpy(datarateTag, "DR8");
-						break;	
-
-					case DR9:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(7);
-						strcpy(datarateTag, "DR9");
-						break;	
-
-					case DR10:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(8);
-						strcpy(datarateTag, "DR10");
-						break;	
-				
-					default:
-						// Close program
-						printf("Finished.\n");
-						fclose(filePointer);
-						testActive = 0;
-						break;
-				}
-				if(testActive == 1) {
-					printf("\n\nsf = %i, bw = %ld, cr = 4/%i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					
-					dataRate  += 1;
-					nbrReceived = 0;
-					printf("Waiting 1 seconds...\n\n");
-					fprintf(filePointer, "Waiting 2 seconds...\n\n");
-					delay(2000);
-				}
-			}
-			receivepacket(); 
-			delay(1);
-		}	
     return (0);
 }

@@ -174,12 +174,6 @@ sf_t sf_init = SF8;
 // Set center frequency
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
-// Required Number of messages received
-int reqNbrReceived = 50;
-
-// Number of messages received
-int nbrReceived = 50;
-
 // Set starting dataRate
 int dataRate = 0;
 
@@ -457,11 +451,6 @@ void receivepacket() {
 			rssicorr = 157;
 
             printf("Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
-            /*
-			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
-            printf("SNR: %li, ", SNR);
-            printf("Length: %i", (int)receivedbytes);
-			*/
             printf("\n");
             printf("Payload: %s\n", message);
 			
@@ -542,120 +531,16 @@ int main (int argc, char *argv[]) {
         printf("------------------\n");
 		int testActive = 1;
 		char datarateTag[5];
-		filePointer = fopen("Testbed1_data.txt", "w");
+		filePointer = fopen("Calibration_data.txt", "w");
 		
-        while(testActive == 1) {
-			if(nbrReceived == reqNbrReceived) {
-				switch (dataRate) 
-				{
-					case DR0:
-						// Config
-						setSpreadingFactor(12);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR0");
-						break;
-										
-					case DR1:
-						// Config
-						setSpreadingFactor(11);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR1");
-						break;
-						
-					case DR2:
-						// Config
-						setSpreadingFactor(10);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR2");
-						break;	
-
-					case DR3:
-						// Config
-						setSpreadingFactor(9);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR3");
-						break;	
-
-					case DR4:
-						// Config
-						setSpreadingFactor(8);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR4");
-						break;	
-
-					case DR5:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR5");
-						break;	
-
-					case DR6:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(250E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR6");
-						break;	
-
-					case DR7:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(500E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR7");
-						break;	
-
-					case DR8:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(6);
-						strcpy(datarateTag, "DR8");
-						break;	
-
-					case DR9:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(7);
-						strcpy(datarateTag, "DR9");
-						break;	
-
-					case DR10:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(125E3);
-						setCodingRate4(8);
-						strcpy(datarateTag, "DR10");
-						break;	
-				
-					default:
-						// Close program
-						printf("Finished.\n");
-						fclose(filePointer);
-						testActive = 0;
-						break;
-				}
-				if(testActive == 1) {
-					printf("\n\nsf = %i, bw = %ld, cr = 4/%i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					
-					dataRate  += 1;
-					nbrReceived = 0;
-					printf("Waiting 1 seconds...\n\n");
-					fprintf(filePointer, "Waiting 2 seconds...\n\n");
-					delay(2000);
-				}
-			}
+		// Config
+		setSpreadingFactor(7);
+		setBandwidth(125E3);
+		setCodingRate4(5);
+		
+        while(1) {				
 			receivepacket(); 
 			delay(1);
-		}	
+		}		
     return (0);
 }
