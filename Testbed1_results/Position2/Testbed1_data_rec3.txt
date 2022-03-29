@@ -1,0 +1,605 @@
+
+
+DR0: sf = 12, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -103    
+2: Packet RSSI: -87    
+3: Packet RSSI: -86    
+4: Packet RSSI: -86    
+5: Packet RSSI: -86    
+6: Packet RSSI: -86    
+7: Packet RSSI: -86    
+8: Packet RSSI: -86    
+9: Packet RSSI: -86    
+10: Packet RSSI: -87    
+11: Packet RSSI: -87    
+12: Packet RSSI: -86    
+13: Packet RSSI: -87    
+14: Packet RSSI: -86    
+15: Packet RSSI: -87    
+16: Packet RSSI: -87    
+17: Packet RSSI: -87    
+18: Packet RSSI: -87    
+19: Packet RSSI: -87    
+20: Packet RSSI: -87    
+21: Packet RSSI: -86    
+22: Packet RSSI: -84    
+23: Packet RSSI: -86    
+24: Packet RSSI: -87    
+25: Packet RSSI: -87    
+26: Packet RSSI: -87    
+27: Packet RSSI: -87    
+28: Packet RSSI: -87    
+29: Packet RSSI: -87    
+30: Packet RSSI: -87    
+31: Packet RSSI: -87    
+32: Packet RSSI: -87    
+33: Packet RSSI: -87    
+34: Packet RSSI: -87    
+35: Packet RSSI: -87    
+36: Packet RSSI: -87    
+37: Packet RSSI: -87    
+38: Packet RSSI: -87    
+39: Packet RSSI: -86    
+40: Packet RSSI: -86    
+41: Packet RSSI: -87    
+42: Packet RSSI: -86    
+43: Packet RSSI: -87    
+44: Packet RSSI: -86    
+45: Packet RSSI: -87    
+46: Packet RSSI: -86    
+47: Packet RSSI: -87    
+48: Packet RSSI: -87    
+49: Packet RSSI: -87    
+50: Packet RSSI: -87    
+
+
+DR1: sf = 11, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -87    (CRC)
+2: Packet RSSI: -86    
+3: Packet RSSI: -86    (CRC)
+4: Packet RSSI: -86    
+5: Packet RSSI: -86    (CRC)
+6: Packet RSSI: -86    
+7: Packet RSSI: -86    (CRC)
+8: Packet RSSI: -86    
+9: Packet RSSI: -86    
+10: Packet RSSI: -86    
+11: Packet RSSI: -86    
+12: Packet RSSI: -87    
+13: Packet RSSI: -87    
+14: Packet RSSI: -87    
+15: Packet RSSI: -87    
+16: Packet RSSI: -87    (CRC)
+17: Packet RSSI: -87    
+18: Packet RSSI: -87    (CRC)
+19: Packet RSSI: -86    
+20: Packet RSSI: -87    (CRC)
+21: Packet RSSI: -87    
+22: Packet RSSI: -87    
+23: Packet RSSI: -87    (CRC)
+24: Packet RSSI: -87    
+25: Packet RSSI: -87    
+26: Packet RSSI: -87    (CRC)
+27: Packet RSSI: -87    
+28: Packet RSSI: -87    
+29: Packet RSSI: -87    
+30: Packet RSSI: -87    (CRC)
+31: Packet RSSI: -87    
+32: Packet RSSI: -87    
+33: Packet RSSI: -88    
+34: Packet RSSI: -86    (CRC)
+35: Packet RSSI: -87    
+36: Packet RSSI: -87    
+37: Packet RSSI: -87    (CRC)
+38: Packet RSSI: -87    
+39: Packet RSSI: -86    (CRC)
+40: Packet RSSI: -85    
+41: Packet RSSI: -87    (CRC)
+42: Packet RSSI: -86    
+43: Packet RSSI: -87    (CRC)
+44: Packet RSSI: -87    
+45: Packet RSSI: -86    (CRC)
+46: Packet RSSI: -86    
+47: Packet RSSI: -87    (CRC)
+48: Packet RSSI: -86    
+49: Packet RSSI: -87    
+50: Packet RSSI: -87    (CRC)
+
+
+DR2: sf = 10, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -86    
+2: Packet RSSI: -87    
+3: Packet RSSI: -87    
+4: Packet RSSI: -86    
+5: Packet RSSI: -87    
+6: Packet RSSI: -86    
+7: Packet RSSI: -85    
+8: Packet RSSI: -85    
+9: Packet RSSI: -85    
+10: Packet RSSI: -85    
+11: Packet RSSI: -85    
+12: Packet RSSI: -85    
+13: Packet RSSI: -85    
+14: Packet RSSI: -85    
+15: Packet RSSI: -85    
+16: Packet RSSI: -85    
+17: Packet RSSI: -85    
+18: Packet RSSI: -85    
+19: Packet RSSI: -85    
+20: Packet RSSI: -85    
+21: Packet RSSI: -85    
+22: Packet RSSI: -86    
+23: Packet RSSI: -85    
+24: Packet RSSI: -86    
+25: Packet RSSI: -86    
+26: Packet RSSI: -86    
+27: Packet RSSI: -86    
+28: Packet RSSI: -86    
+29: Packet RSSI: -86    
+30: Packet RSSI: -86    
+31: Packet RSSI: -86    
+32: Packet RSSI: -86    
+33: Packet RSSI: -86    
+34: Packet RSSI: -87    
+35: Packet RSSI: -86    
+36: Packet RSSI: -87    
+37: Packet RSSI: -87    
+38: Packet RSSI: -87    
+39: Packet RSSI: -86    
+40: Packet RSSI: -86    
+41: Packet RSSI: -86    
+42: Packet RSSI: -87    
+43: Packet RSSI: -86    
+44: Packet RSSI: -86    
+45: Packet RSSI: -86    
+46: Packet RSSI: -87    
+47: Packet RSSI: -86    
+48: Packet RSSI: -86    
+49: Packet RSSI: -86    
+50: Packet RSSI: -86    
+
+
+DR3: sf = 9, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -86    
+2: Packet RSSI: -86    
+3: Packet RSSI: -86    
+4: Packet RSSI: -86    
+5: Packet RSSI: -87    
+6: Packet RSSI: -87    
+7: Packet RSSI: -86    
+8: Packet RSSI: -86    
+9: Packet RSSI: -86    
+10: Packet RSSI: -86    
+11: Packet RSSI: -86    
+12: Packet RSSI: -86    
+13: Packet RSSI: -86    
+14: Packet RSSI: -86    
+15: Packet RSSI: -86    
+16: Packet RSSI: -86    
+17: Packet RSSI: -86    
+18: Packet RSSI: -86    
+19: Packet RSSI: -87    
+20: Packet RSSI: -86    
+21: Packet RSSI: -86    
+22: Packet RSSI: -85    
+23: Packet RSSI: -85    
+24: Packet RSSI: -86    
+25: Packet RSSI: -86    
+26: Packet RSSI: -86    
+27: Packet RSSI: -86    
+28: Packet RSSI: -86    
+29: Packet RSSI: -87    
+30: Packet RSSI: -87    
+31: Packet RSSI: -87    
+32: Packet RSSI: -87    
+33: Packet RSSI: -86    
+34: Packet RSSI: -87    
+35: Packet RSSI: -87    
+36: Packet RSSI: -86    
+37: Packet RSSI: -87    
+38: Packet RSSI: -86    
+39: Packet RSSI: -86    
+40: Packet RSSI: -86    
+41: Packet RSSI: -86    
+42: Packet RSSI: -86    
+43: Packet RSSI: -86    
+44: Packet RSSI: -87    
+45: Packet RSSI: -88    
+46: Packet RSSI: -88    
+47: Packet RSSI: -89    
+48: Packet RSSI: -89    
+49: Packet RSSI: -87    
+50: Packet RSSI: -86    
+
+
+DR4: sf = 8, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -85    
+2: Packet RSSI: -84    
+3: Packet RSSI: -84    
+4: Packet RSSI: -84    
+5: Packet RSSI: -84    
+6: Packet RSSI: -84    
+7: Packet RSSI: -84    
+8: Packet RSSI: -85    
+9: Packet RSSI: -84    
+10: Packet RSSI: -84    
+11: Packet RSSI: -84    
+12: Packet RSSI: -84    
+13: Packet RSSI: -83    
+14: Packet RSSI: -84    
+15: Packet RSSI: -84    
+16: Packet RSSI: -84    
+17: Packet RSSI: -84    
+18: Packet RSSI: -84    
+19: Packet RSSI: -84    
+20: Packet RSSI: -84    
+21: Packet RSSI: -85    
+22: Packet RSSI: -85    
+23: Packet RSSI: -85    
+24: Packet RSSI: -84    
+25: Packet RSSI: -85    
+26: Packet RSSI: -85    
+27: Packet RSSI: -85    
+28: Packet RSSI: -85    
+29: Packet RSSI: -85    
+30: Packet RSSI: -85    
+31: Packet RSSI: -85    
+32: Packet RSSI: -86    
+33: Packet RSSI: -87    
+34: Packet RSSI: -87    
+35: Packet RSSI: -87    
+36: Packet RSSI: -87    
+37: Packet RSSI: -87    
+38: Packet RSSI: -87    
+39: Packet RSSI: -87    
+40: Packet RSSI: -87    
+41: Packet RSSI: -87    
+42: Packet RSSI: -87    
+43: Packet RSSI: -87    
+44: Packet RSSI: -87    
+45: Packet RSSI: -87    
+46: Packet RSSI: -87    
+47: Packet RSSI: -87    
+48: Packet RSSI: -87    
+49: Packet RSSI: -87    
+50: Packet RSSI: -87    
+
+
+DR5: sf = 7, bw = 125000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -86    
+2: Packet RSSI: -86    
+3: Packet RSSI: -85    
+4: Packet RSSI: -85    
+5: Packet RSSI: -84    
+6: Packet RSSI: -84    
+7: Packet RSSI: -85    
+8: Packet RSSI: -84    
+9: Packet RSSI: -84    
+10: Packet RSSI: -85    
+11: Packet RSSI: -85    
+12: Packet RSSI: -85    
+13: Packet RSSI: -85    
+14: Packet RSSI: -85    
+15: Packet RSSI: -85    
+16: Packet RSSI: -85    
+17: Packet RSSI: -85    
+18: Packet RSSI: -84    
+19: Packet RSSI: -85    
+20: Packet RSSI: -84    
+21: Packet RSSI: -85    
+22: Packet RSSI: -85    
+23: Packet RSSI: -84    
+24: Packet RSSI: -84    
+25: Packet RSSI: -84    
+26: Packet RSSI: -84    
+27: Packet RSSI: -85    
+28: Packet RSSI: -85    
+29: Packet RSSI: -85    
+30: Packet RSSI: -85    
+31: Packet RSSI: -85    
+32: Packet RSSI: -85    
+33: Packet RSSI: -85    
+34: Packet RSSI: -86    
+35: Packet RSSI: -86    
+36: Packet RSSI: -87    
+37: Packet RSSI: -87    
+38: Packet RSSI: -87    
+39: Packet RSSI: -87    
+40: Packet RSSI: -87    
+41: Packet RSSI: -87    
+42: Packet RSSI: -87    
+43: Packet RSSI: -87    
+44: Packet RSSI: -87    
+45: Packet RSSI: -86    
+46: Packet RSSI: -86    
+47: Packet RSSI: -86    
+48: Packet RSSI: -86    
+49: Packet RSSI: -85    
+50: Packet RSSI: -86    
+
+
+DR6: sf = 7, bw = 250000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -83    
+2: Packet RSSI: -83    
+3: Packet RSSI: -76    
+4: Packet RSSI: -83    
+5: Packet RSSI: -83    
+6: Packet RSSI: -83    
+7: Packet RSSI: -84    
+8: Packet RSSI: -84    
+9: Packet RSSI: -84    
+10: Packet RSSI: -84    
+11: Packet RSSI: -84    
+12: Packet RSSI: -84    
+13: Packet RSSI: -84    
+14: Packet RSSI: -84    
+15: Packet RSSI: -84    
+16: Packet RSSI: -76    
+17: Packet RSSI: -83    
+18: Packet RSSI: -84    
+19: Packet RSSI: -84    
+20: Packet RSSI: -85    
+21: Packet RSSI: -84    
+22: Packet RSSI: -84    
+23: Packet RSSI: -84    
+24: Packet RSSI: -85    
+25: Packet RSSI: -85    
+26: Packet RSSI: -85    
+27: Packet RSSI: -85    
+28: Packet RSSI: -84    
+29: Packet RSSI: -85    
+30: Packet RSSI: -85    
+31: Packet RSSI: -85    
+32: Packet RSSI: -85    
+33: Packet RSSI: -85    
+34: Packet RSSI: -85    
+35: Packet RSSI: -85    
+36: Packet RSSI: -85    
+37: Packet RSSI: -85    
+38: Packet RSSI: -85    
+39: Packet RSSI: -85    
+40: Packet RSSI: -85    
+41: Packet RSSI: -85    
+42: Packet RSSI: -85    
+43: Packet RSSI: -85    
+44: Packet RSSI: -85    
+45: Packet RSSI: -85    
+46: Packet RSSI: -85    
+47: Packet RSSI: -85    
+48: Packet RSSI: -85    
+49: Packet RSSI: -85    
+50: Packet RSSI: -85    
+
+
+DR7: sf = 7, bw = 500000, cr = 4/5.
+Waiting 2 seconds...
+
+1: Packet RSSI: -85    
+2: Packet RSSI: -85    
+3: Packet RSSI: -85    
+4: Packet RSSI: -85    
+5: Packet RSSI: -85    
+6: Packet RSSI: -86    
+7: Packet RSSI: -85    
+8: Packet RSSI: -85    
+9: Packet RSSI: -85    
+10: Packet RSSI: -85    
+11: Packet RSSI: -85    
+12: Packet RSSI: -85    
+13: Packet RSSI: -85    
+14: Packet RSSI: -84    
+15: Packet RSSI: -85    
+16: Packet RSSI: -84    
+17: Packet RSSI: -84    
+18: Packet RSSI: -84    
+19: Packet RSSI: -85    
+20: Packet RSSI: -85    
+21: Packet RSSI: -85    
+22: Packet RSSI: -85    
+23: Packet RSSI: -85    
+24: Packet RSSI: -85    
+25: Packet RSSI: -85    
+26: Packet RSSI: -85    
+27: Packet RSSI: -85    
+28: Packet RSSI: -84    
+29: Packet RSSI: -84    
+30: Packet RSSI: -84    
+31: Packet RSSI: -85    
+32: Packet RSSI: -85    
+33: Packet RSSI: -85    
+34: Packet RSSI: -85    
+35: Packet RSSI: -85    
+36: Packet RSSI: -85    
+37: Packet RSSI: -85    
+38: Packet RSSI: -85    
+39: Packet RSSI: -85    
+40: Packet RSSI: -85    
+41: Packet RSSI: -85    
+42: Packet RSSI: -85    
+43: Packet RSSI: -85    
+44: Packet RSSI: -84    
+45: Packet RSSI: -85    
+46: Packet RSSI: -84    
+47: Packet RSSI: -85    
+48: Packet RSSI: -84    
+49: Packet RSSI: -84    
+50: Packet RSSI: -85    
+
+
+DR8: sf = 7, bw = 125000, cr = 4/6.
+Waiting 2 seconds...
+
+1: Packet RSSI: -83    
+2: Packet RSSI: -83    
+3: Packet RSSI: -83    
+4: Packet RSSI: -83    
+5: Packet RSSI: -83    
+6: Packet RSSI: -83    
+7: Packet RSSI: -83    
+8: Packet RSSI: -83    
+9: Packet RSSI: -83    
+10: Packet RSSI: -83    
+11: Packet RSSI: -83    
+12: Packet RSSI: -83    
+13: Packet RSSI: -83    
+14: Packet RSSI: -83    
+15: Packet RSSI: -83    
+16: Packet RSSI: -83    
+17: Packet RSSI: -83    
+18: Packet RSSI: -83    
+19: Packet RSSI: -83    
+20: Packet RSSI: -83    
+21: Packet RSSI: -83    
+22: Packet RSSI: -83    
+23: Packet RSSI: -83    
+24: Packet RSSI: -83    
+25: Packet RSSI: -83    
+26: Packet RSSI: -83    
+27: Packet RSSI: -83    
+28: Packet RSSI: -83    
+29: Packet RSSI: -83    
+30: Packet RSSI: -83    
+31: Packet RSSI: -83    
+32: Packet RSSI: -83    
+33: Packet RSSI: -83    
+34: Packet RSSI: -83    
+35: Packet RSSI: -83    
+36: Packet RSSI: -83    
+37: Packet RSSI: -83    
+38: Packet RSSI: -83    
+39: Packet RSSI: -83    
+40: Packet RSSI: -83    
+41: Packet RSSI: -83    
+42: Packet RSSI: -83    
+43: Packet RSSI: -83    
+44: Packet RSSI: -83    
+45: Packet RSSI: -83    
+46: Packet RSSI: -83    
+47: Packet RSSI: -83    
+48: Packet RSSI: -83    
+49: Packet RSSI: -83    
+50: Packet RSSI: -83    
+
+
+DR9: sf = 7, bw = 125000, cr = 4/7.
+Waiting 2 seconds...
+
+1: Packet RSSI: -83    
+2: Packet RSSI: -81    
+3: Packet RSSI: -81    
+4: Packet RSSI: -81    
+5: Packet RSSI: -81    
+6: Packet RSSI: -81    
+7: Packet RSSI: -81    
+8: Packet RSSI: -81    
+9: Packet RSSI: -81    
+10: Packet RSSI: -81    
+11: Packet RSSI: -80    
+12: Packet RSSI: -81    
+13: Packet RSSI: -81    
+14: Packet RSSI: -81    
+15: Packet RSSI: -81    
+16: Packet RSSI: -81    
+17: Packet RSSI: -81    
+18: Packet RSSI: -80    
+19: Packet RSSI: -81    
+20: Packet RSSI: -81    
+21: Packet RSSI: -80    
+22: Packet RSSI: -80    
+23: Packet RSSI: -81    
+24: Packet RSSI: -80    
+25: Packet RSSI: -80    
+26: Packet RSSI: -80    
+27: Packet RSSI: -80    
+28: Packet RSSI: -80    
+29: Packet RSSI: -80    
+30: Packet RSSI: -80    
+31: Packet RSSI: -80    
+32: Packet RSSI: -80    
+33: Packet RSSI: -80    
+34: Packet RSSI: -80    
+35: Packet RSSI: -80    
+36: Packet RSSI: -80    
+37: Packet RSSI: -80    
+38: Packet RSSI: -80    
+39: Packet RSSI: -80    
+40: Packet RSSI: -80    
+41: Packet RSSI: -80    
+42: Packet RSSI: -80    
+43: Packet RSSI: -80    
+44: Packet RSSI: -80    
+45: Packet RSSI: -80    
+46: Packet RSSI: -80    
+47: Packet RSSI: -80    
+48: Packet RSSI: -80    
+49: Packet RSSI: -80    
+50: Packet RSSI: -80    
+
+
+DR10: sf = 7, bw = 125000, cr = 4/8.
+Waiting 2 seconds...
+
+1: Packet RSSI: -80    
+2: Packet RSSI: -79    
+3: Packet RSSI: -78    
+4: Packet RSSI: -79    
+5: Packet RSSI: -79    
+6: Packet RSSI: -79    
+7: Packet RSSI: -79    
+8: Packet RSSI: -78    
+9: Packet RSSI: -79    
+10: Packet RSSI: -79    
+11: Packet RSSI: -79    
+12: Packet RSSI: -78    
+13: Packet RSSI: -79    
+14: Packet RSSI: -79    
+15: Packet RSSI: -79    
+16: Packet RSSI: -79    
+17: Packet RSSI: -79    
+18: Packet RSSI: -79    
+19: Packet RSSI: -79    
+20: Packet RSSI: -79    
+21: Packet RSSI: -79    
+22: Packet RSSI: -79    
+23: Packet RSSI: -79    
+24: Packet RSSI: -78    
+25: Packet RSSI: -78    
+26: Packet RSSI: -79    
+27: Packet RSSI: -79    
+28: Packet RSSI: -79    
+29: Packet RSSI: -79    
+30: Packet RSSI: -79    
+31: Packet RSSI: -79    
+32: Packet RSSI: -79    
+33: Packet RSSI: -79    
+34: Packet RSSI: -79    
+35: Packet RSSI: -79    
+36: Packet RSSI: -78    
+37: Packet RSSI: -79    
+38: Packet RSSI: -79    
+39: Packet RSSI: -79    
+40: Packet RSSI: -79    
+41: Packet RSSI: -79    
+42: Packet RSSI: -79    
+43: Packet RSSI: -79    
+44: Packet RSSI: -80    
+45: Packet RSSI: -80    
+46: Packet RSSI: -80    
+47: Packet RSSI: -80    
+48: Packet RSSI: -80    
+49: Packet RSSI: -79    
+50: Packet RSSI: -79    
