@@ -606,7 +606,7 @@ int main (int argc, char *argv[]) {
 				fclose(filePointer);
 				if(dataRate == 11){
 					dataRate = 0;
-					printf("Move Receiver! Waiting 18 seconds before proceeding with DR0...");
+					printf("Move Receiver! Waiting 18 seconds before proceeding with DR0...\n");
 					delay(18000);
 				}
 				switch (dataRate) 
@@ -732,7 +732,7 @@ int main (int argc, char *argv[]) {
 					fprintf(filePointer, "\n");
 					nbrReceived = 0;
 					dataRate  += 1;	
-					printf("Waiting 2 seconds...\n\n");
+					printf("Waiting 2 seconds...\n");
 					delay(2000);						
 				}
 			}
