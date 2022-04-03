@@ -729,7 +729,7 @@ int main (int argc, char *argv[]) {
 				if(testActive == 1) {
 					printf("\n\n%s - sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
-					fprintf(filepointer, "\n");
+					fprintf(filePointer, "\n");
 					nbrReceived = 0;
 					dataRate  += 1;	
 					printf("Waiting 2 seconds...\n\n");
