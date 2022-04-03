@@ -576,7 +576,7 @@ void prepareFiles(){
 	
 	//DR10
 	filePointer = fopen("Calibration_DR10", "w");
-	fclose(filePointer);	
+	//fclose(filePointer);	
 }
 
 int main (int argc, char *argv[]) {
