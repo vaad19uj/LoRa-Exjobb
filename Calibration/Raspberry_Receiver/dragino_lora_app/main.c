@@ -604,6 +604,11 @@ int main (int argc, char *argv[]) {
         while(testActive == 1) {
 			if(nbrReceived == reqNbrReceived) {
 				fclose(filePointer);
+				if(dataRate == 11){
+					dataRate = 0;
+					printf("Move Receiver! Waiting 18 seconds before proceeding with DR0...");
+					delay(18000);
+				}
 				switch (dataRate) 
 				{
 					case DR0:
@@ -722,15 +727,9 @@ int main (int argc, char *argv[]) {
 					printf("\n\n%s - sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
 					nbrReceived = 0;
-					if(dataRate == 10){
-						dataRate = 0;
-						printf("Move Receiver! Waiting 18 seconds before proceeding with DR0...");
-						delay(18000);
-					}else{
-						dataRate  += 1;	
-						printf("Waiting 2 seconds...\n\n");
-						delay(2000);						
-					}
+					dataRate  += 1;	
+					printf("Waiting 2 seconds...\n\n");
+					delay(2000);						
 				}
 			}
 			receivepacket(); 

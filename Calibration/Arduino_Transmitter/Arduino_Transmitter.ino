@@ -315,7 +315,7 @@ void loop() {
     Serial.println("sf: " + str1 + ", bw: " + str2 + ", cr: " + str3 + ".");
     
     messageNbr = 0;
-    if(dataRate = 10){
+    if(dataRate == 10){
       dataRate = 0;
       Serial.println("Move receiver! Waiting 20 seconds before proceeding with DR0...");
       delay(20000);
