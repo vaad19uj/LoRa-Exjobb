@@ -6,14 +6,19 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial loraSerial(10, 11);
+enum DATARATE {DR0, DR1, DR2, DR3, DR4, DR5, DR6, DR7, DR8, DR9, DR10};
 
 String str;
 String str1;
 String str2;
 String str3;
-int messageNbr = 0;
-
+int messageNbr = 7;
+int reqMessageNbr = 7;
 String message;
+int dataRate = 0;
+int currentDistance = 0;
+int maxDistance = 900;
+
 void setup() {
   //output LED pin
   pinMode(13, OUTPUT);
@@ -125,7 +130,201 @@ void loop() {
 
 void loop() {
   led_on();
-  
+
+  if(messageNbr == reqMessageNbr) {
+    switch(dataRate){
+      
+      case DR0:
+        if(currentDistance == maxDistance){
+          Serial.println("Calibration finished.");
+          led_off();
+          while(1) {
+            delay(1);
+          }
+        }else{
+          currentDistance += 20;           
+        }       
+        
+        loraSerial.println("radio set sf sf12");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR1:
+        loraSerial.println("radio set sf sf11");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR2:
+        loraSerial.println("radio set sf sf10");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+       case DR3:
+        loraSerial.println("radio set sf sf9");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+       case DR4:
+        loraSerial.println("radio set sf sf8");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR5:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR6:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 250");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR7:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 500");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR8:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/6");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR9:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR10:
+        loraSerial.println("radio set sf sf7");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 125");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/8");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      default:
+        Serial.println("Something went wrong...");
+        led_off();
+        while(1) {
+          delay(1);
+        }
+        break;
+    }
+    loraSerial.println("radio get sf");
+    str1 = loraSerial.readStringUntil('\n');
+    loraSerial.println("radio get bw");
+    str2 = loraSerial.readStringUntil('\n');
+    loraSerial.println("radio get cr");
+    str3 = loraSerial.readStringUntil('\n');
+    Serial.println("sf: " + str1 + ", bw: " + str2 + ", cr: " + str3 + ".");
+    
+    messageNbr = 0;
+    if(dataRate = 10){
+      dataRate = 0;
+      Serial.println("Move receiver! Waiting 20 seconds before proceeding with DR0...");
+      delay(20000);
+    }else{
+      dataRate += 1;
+      Serial.println("Waiting 3 seconds before continuing with the next datarate...");
+      delay(3000);
+    }
+  }
   //message = "radio tx " + String(messageNbr);
   loraSerial.println("radio tx 0");
   loraSerial.readStringUntil('\n');
@@ -133,8 +332,7 @@ void loop() {
   Serial.println(str + " - " + String(messageNbr));
   messageNbr += 1;
   led_off();
-  Serial.println("Waiting 10 seconds ")
-  delay(10000);
+  delay(100);
 }
 
 void lora_autobaud()

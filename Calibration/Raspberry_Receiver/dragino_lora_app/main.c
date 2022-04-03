@@ -174,8 +174,23 @@ sf_t sf_init = SF8;
 // Set center frequency
 uint32_t  freq = 868100000; // in Mhz! (868.1)
 
+// Required Number of messages received
+int reqNbrReceived = 5;
+
+// Number of messages received
+int nbrReceived = 5;
+
 // Set starting dataRate
 int dataRate = 0;
+
+//distance between units
+int currentDistance = 0;
+
+//maximum distance between units
+int maxDistance = 900;
+
+//String containing current Datarate
+char datarateTag[5];
 
 //Pointer to file where data is saved
 FILE *filePointer;
@@ -451,10 +466,15 @@ void receivepacket() {
 			rssicorr = 157;
 
             printf("Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
+            /*
+			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
+            printf("SNR: %li, ", SNR);
+            printf("Length: %i", (int)receivedbytes);
+			*/
             printf("\n");
             printf("Payload: %s\n", message);
 			
-			fprintf(filePointer, "%i: ", nbrReceived);
+			fprintf(filePointer, "%s - %icm - %i: ", datarateTag, currentDistance, nbrReceived);
 			fprintf(filePointer, "Packet RSSI: %d    %s\n", readReg(0x1A)-rssicorr, crcError);
 			/*
             fprintf(filePointer, "RSSI: %d, ", readReg(0x1B)-rssicorr);
@@ -512,6 +532,53 @@ void txlora(byte *frame, byte datalen) {
     printf("send: %s\n", frame);
 }
 
+//Creates all the empty files for storing calibration data
+void prepareFiles(){
+	//DR0
+	filePointer = fopen("Calibration_DR0.txt", "w");
+	fclose(filePointer);
+	
+	//DR1
+	filePointer = fopen("Calibration_DR1", "w");
+	fclose(filePointer);
+	
+	//DR2
+	filePointer = fopen("Calibration_DR2", "w");
+	fclose(filePointer);
+	
+	//DR3
+	filePointer = fopen("Calibration_DR3", "w");
+	fclose(filePointer);
+	
+	//DR4
+	filePointer = fopen("Calibration_DR4", "w");
+	fclose(filePointer);
+	
+	//DR5
+	filePointer = fopen("Calibration_DR5", "w");
+	fclose(filePointer);
+	
+	//DR6
+	filePointer = fopen("Calibration_DR6", "w");
+	fclose(filePointer);
+	
+	//DR7
+	filePointer = fopen("Calibration_DR7", "w");
+	fclose(filePointer);
+	
+	//DR8
+	filePointer = fopen("Calibration_DR8", "w");
+	fclose(filePointer);
+	
+	//DR9
+	filePointer = fopen("Calibration_DR9", "w");
+	fclose(filePointer);
+	
+	//DR10
+	filePointer = fopen("Calibration_DR10", "w");
+	fclose(filePointer);	
+}
+
 int main (int argc, char *argv[]) {
 
     wiringPiSetup () ;
@@ -527,20 +594,147 @@ int main (int argc, char *argv[]) {
         opmodeLora();
         opmode(OPMODE_STANDBY);
         opmode(OPMODE_RX);
-        printf("Setup finished.");
-        printf("------------------\n");
+		
 		int testActive = 1;
-		char datarateTag[5];
-		filePointer = fopen("Calibration_data.txt", "w");
+		prepareFiles();
 		
-		// Config
-		setSpreadingFactor(7);
-		setBandwidth(125E3);
-		setCodingRate4(5);
+		printf("Setup finished.");
+        printf("------------------\n");
 		
-        while(1) {				
+        while(testActive == 1) {
+			if(nbrReceived == reqNbrReceived) {
+				fclose(filePointer);
+				switch (dataRate) 
+				{
+					case DR0:
+						if(currentDistance == maxDistance){
+							printf("Finished.\n");
+							fclose(filePointer);
+							testActive = 0;
+						}else{							
+							currentDistance += 20;
+							setSpreadingFactor(12);
+							setBandwidth(125E3);
+							setCodingRate4(5);
+							strcpy(datarateTag, "DR0");
+							filePointer = fopen("Calibration_DR0", "a");
+						}
+						break;
+										
+					case DR1:
+						// Config
+						setSpreadingFactor(11);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR1");
+						filePointer = fopen("Calibration_DR1", "a");
+						break;
+						
+					case DR2:
+						// Config
+						setSpreadingFactor(10);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR2");
+						filePointer = fopen("Calibration_DR2", "a");
+						break;	
+
+					case DR3:
+						// Config
+						setSpreadingFactor(9);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR3");
+						filePointer = fopen("Calibration_DR3", "a");
+						break;	
+
+					case DR4:
+						// Config
+						setSpreadingFactor(8);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR4");
+						filePointer = fopen("Calibration_DR4", "a");
+						break;	
+
+					case DR5:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR5");
+						filePointer = fopen("Calibration_DR5", "a");
+						break;	
+
+					case DR6:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(250E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR6");
+						filePointer = fopen("Calibration_DR6", "a");
+						break;	
+
+					case DR7:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(500E3);
+						setCodingRate4(5);
+						strcpy(datarateTag, "DR7");
+						filePointer = fopen("Calibration_DR7", "a");
+						break;	
+
+					case DR8:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(6);
+						strcpy(datarateTag, "DR8");
+						filePointer = fopen("Calibration_DR8", "a");
+						break;	
+
+					case DR9:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(7);
+						strcpy(datarateTag, "DR9");
+						filePointer = fopen("Calibration_DR9", "a");
+						break;	
+
+					case DR10:
+						// Config
+						setSpreadingFactor(7);
+						setBandwidth(125E3);
+						setCodingRate4(8);
+						strcpy(datarateTag, "DR10");
+						filePointer = fopen("Calibration_DR10", "a");
+						break;	
+				
+					default:
+						// Close program
+						printf("Something went wrong...");
+						fclose(filePointer);
+						testActive = 0;
+						break;
+				}
+				if(testActive == 1) {
+					printf("\n\n%s - sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					
+					nbrReceived = 0;
+					if(dataRate == 10){
+						dataRate = 0;
+						printf("Move Receiver! Waiting 18 seconds before proceeding with DR0...");
+						delay(18000);
+					}else{
+						dataRate  += 1;	
+						printf("Waiting 2 seconds...\n\n");
+						delay(2000);						
+					}
+				}
+			}
 			receivepacket(); 
 			delay(1);
-		}		
+		}	
     return (0);
 }
