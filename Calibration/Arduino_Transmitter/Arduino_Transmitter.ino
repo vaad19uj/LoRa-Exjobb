@@ -132,6 +132,11 @@ void loop() {
   led_on();
 
   if(messageNbr == reqMessageNbr) {
+    if(dataRate == 11){
+      dataRate = 0;
+      Serial.println("Move receiver! Waiting 20 seconds before proceeding with DR0...");
+      delay(20000);
+    }
     switch(dataRate){
       
       case DR0:
@@ -142,7 +147,9 @@ void loop() {
             delay(1);
           }
         }else{
-          currentDistance += 20;           
+          currentDistance += 20;
+          //One additional message for DR0 - first value received is weird
+          reqMessageNbr = 8;           
         }       
         
         loraSerial.println("radio set sf sf12");
@@ -159,6 +166,8 @@ void loop() {
         break;
 
       case DR1:
+        //reset required message number.
+        reqMessageNbr = 7;
         loraSerial.println("radio set sf sf11");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -315,15 +324,9 @@ void loop() {
     Serial.println("sf: " + str1 + ", bw: " + str2 + ", cr: " + str3 + ".");
     
     messageNbr = 0;
-    if(dataRate == 10){
-      dataRate = 0;
-      Serial.println("Move receiver! Waiting 20 seconds before proceeding with DR0...");
-      delay(20000);
-    }else{
-      dataRate += 1;
-      Serial.println("Waiting 3 seconds before continuing with the next datarate...");
-      delay(3000);
-    }
+    dataRate += 1;
+    Serial.println("Waiting 3 seconds before continuing with the next datarate...");
+    delay(3000);
   }
   //message = "radio tx " + String(messageNbr);
   loraSerial.println("radio tx 0");

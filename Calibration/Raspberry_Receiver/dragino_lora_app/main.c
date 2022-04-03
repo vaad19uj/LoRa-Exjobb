@@ -617,6 +617,8 @@ int main (int argc, char *argv[]) {
 							fclose(filePointer);
 							testActive = 0;
 						}else{							
+							//First value during DR0 is always weird, receives it without arduino sending it???
+							reqNbrReceived = 6;
 							currentDistance += 20;
 							setSpreadingFactor(12);
 							setBandwidth(125E3);
@@ -627,7 +629,8 @@ int main (int argc, char *argv[]) {
 						break;
 										
 					case DR1:
-						// Config
+						//reset required messages after DR0.
+						reqNbrReceived = 5;
 						setSpreadingFactor(11);
 						setBandwidth(125E3);
 						setCodingRate4(5);
@@ -726,6 +729,7 @@ int main (int argc, char *argv[]) {
 				if(testActive == 1) {
 					printf("\n\n%s - sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
 					
+					fprintf(filepointer, "\n");
 					nbrReceived = 0;
 					dataRate  += 1;	
 					printf("Waiting 2 seconds...\n\n");
