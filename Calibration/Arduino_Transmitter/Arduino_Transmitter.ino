@@ -332,7 +332,7 @@ void loop() {
   loraSerial.println("radio tx 0");
   loraSerial.readStringUntil('\n');
   str = loraSerial.readStringUntil('\n');
-  Serial.println(str + " - " + String(messageNbr));
+  Serial.println(str + " - " + String(currentDistance) + "cm - " + String(messageNbr));
   messageNbr += 1;
   led_off();
   delay(100);

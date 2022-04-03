@@ -465,14 +465,14 @@ void receivepacket() {
             }
 			rssicorr = 157;
 
-            printf("Packet RSSI: %d    %s", readReg(0x1A)-rssicorr, crcError);
+            printf("%icm - %i. Packet RSSI: %d    %s", currentDistance, nbrReceived, readReg(0x1A)-rssicorr, crcError);
             /*
 			printf("RSSI: %d, ", readReg(0x1B)-rssicorr);
             printf("SNR: %li, ", SNR);
             printf("Length: %i", (int)receivedbytes);
 			*/
             printf("\n");
-            printf("Payload: %s\n", message);
+            //printf("Payload: %s\n", message);
 			
 			fprintf(filePointer, "%s - %icm - %i: ", datarateTag, currentDistance, nbrReceived);
 			fprintf(filePointer, "Packet RSSI: %d    %s\n", readReg(0x1A)-rssicorr, crcError);
