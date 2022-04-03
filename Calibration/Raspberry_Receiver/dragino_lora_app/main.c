@@ -535,7 +535,7 @@ void txlora(byte *frame, byte datalen) {
 //Creates all the empty files for storing calibration data
 void prepareFiles(){
 	//DR0
-	filePointer = fopen("Calibration_DR0.txt", "w");
+	filePointer = fopen("Calibration_DR0", "w");
 	fclose(filePointer);
 	
 	//DR1
