@@ -16,7 +16,7 @@ for position in range(1,4):
             array = []
             array.extend(datarate)
             array_int = [int(i) for i in array]
-            combined_MSD[index]  += statistics.stdev(array_int)
+            combined_MSD[index]  += statistics.pstdev(array_int)
             print(combined_MSD[index])
             index +=1
     print(combined_MSD)
