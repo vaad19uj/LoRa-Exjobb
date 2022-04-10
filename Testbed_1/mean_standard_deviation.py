@@ -9,14 +9,17 @@ for position in range(1,4):
     for receiver in range(1,4):
         #Address in github repository
         f = open("C:\\Users\\myran\\Desktop\\Enchipsdatorer\\LoRa-Exjobb\\Testbed_1\\Testbed1_results\\Position" + str(position) + "\\Testbed1_data_rec" + str(receiver) + ".txt")
-        txt = f.read();
+        txt = f.read()
         extracted_data = re.findall(regex, txt)
         index = 0
         for datarate in extracted_data:
             array = []
             array.extend(datarate)
             array_int = [int(i) for i in array]
-            combined_MSD[index]  += statistics.pstdev(array_int)
+            if index == 0:
+                combined_MSD[index]  += statistics.pstdev(array_int[1:])
+            else:
+                combined_MSD[index]  += statistics.pstdev(array_int)
             print(combined_MSD[index])
             index +=1
     print(combined_MSD)
