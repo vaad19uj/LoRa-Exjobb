@@ -68,10 +68,11 @@ for i in range(1,4):
         y1 = actualTransmitters[i-1][1]
         y2 = finalPos[1]
         absError = math.sqrt((x2 - x1)**2 + (y2 - y1)**2) 
-
+        absErrorInCm = absError * 100
+        absErrorInCm = round(absErrorInCm, 3)
         print("x = " + str(finalPos[0]))
         print("y = " + str(finalPos[1]))
         f_new.write("x = " + str(finalPos[0]) + "\n")
         f_new.write("y = " + str(finalPos[1]) + "\n")
-        f_new.write("absolute error: " + str(absError) + "\n\n")
+        f_new.write("absolute error: " + str(absErrorInCm) + "\n\n")
 
