@@ -46,13 +46,13 @@ actualTransmitters = [[9.07, -2.01], [3.425, 0.0], [4.945, 4.395]]
 regex = []
 distances = [0] * 3
 
-for i in range(0,10):
+for i in range(0,11):
     regex.append('.*\sDR ' + str(i) + '\s.*\s.* (\d+.\d+)')
 for i in range(1,4):
     f = open("C:\\Users\\Adina\\source\\repos\\Exjobb\\LoRa-Exjobb\\Testbed_1\\Testbed1_results\\Distances\\Position" + str(i) + "_Distance.txt")
     f_new = open('C:\\Users\\Adina\\source\\repos\\Exjobb\\LoRa-Exjobb\\Testbed_1\\Testbed1_results\\Coordinates\\Position' + str(i) + '_Distance.txt', "w")
     txt = f.read()
-    for dr in range(10):
+    for dr in range(11):
         distance = re.findall(regex[dr], txt)
         print("\n")
         f_new.write("DR" + str(dr) + "\n")
