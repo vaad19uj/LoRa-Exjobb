@@ -1,0 +1,31 @@
+Install raspbian on sd card
+
+sudo raspi-config (turn on SPI, Interface -> SPI)
+download wiring pi: 
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+gpio -v
+
+Install packet_forwader
+cd /home/pi
+git clone https://github.com/dragino/dual_chan_pkt_fwd
+make
+sudo ./dual_chan_pkt_fwd
+
+Download git repository: 
+wget https://codeload.github.com/dragino/rpi-lora-tranceiver/zip/master  //Exchange with our code
+unzip files
+make
+
+run as rec or sender
+
+
+
+
+
+
+Connect through ip from pc:
+	$ ssh -l pi "Units IP-address"
+	Check ip address with "ifconfig"
+
+turnoff: sudo shutdown now
