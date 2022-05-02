@@ -700,7 +700,7 @@ int main (int argc, char *argv[]) {
 						filePointer = fopen("Calibration_DR14", "a");
 						break;	
 
-					case DR15
+					case DR15:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -758,7 +758,6 @@ int main (int argc, char *argv[]) {
 					case DR21:
 						// Config
 						reqNbrReceived = 6;
-						switchToAccuracy = 1;
 						setSpreadingFactor(12);
 						setBandwidth(250E3);
 						setCodingRate4(6);
