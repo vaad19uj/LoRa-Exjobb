@@ -543,8 +543,9 @@ int main (int argc, char *argv[]) {
 		int testActive = 1;
 		int switchToAccuracy = 0;
 		char datarateTag[5];
-		filePointerAccuracy = fopen("Testbed2_data_Accuracy.txt", "w");
-		filePointerPrecision = fopen("Testbed2_data_Precision.txt", "w");
+		filePointer = fopen("Testbed2_data.txt", "w");
+		// filePointerAccuracy = fopen("Testbed2_data_Accuracy.txt", "w");
+		// filePointerPrecision = fopen("Testbed2_data_Precision.txt", "w");
 		
         while(testActive == 1) {
 			if(nbrReceived == reqNbrReceived) {
@@ -641,7 +642,7 @@ int main (int argc, char *argv[]) {
 					//PRECISION STARTS HERE
 					case DR22:
 						// Config
-						switchToAccuracy = 1;
+						//switchToAccuracy = 1;
 						setSpreadingFactor(12);
 						setBandwidth(250E3);
 						setCodingRate4(6);
@@ -731,22 +732,24 @@ int main (int argc, char *argv[]) {
 					default:
 						// Close program
 						printf("Finished.\n");
-						fclose(filePointerAccuracy);
-						fclose(filePointerPrecision);
+						// fclose(filePointerAccuracy);
+						// fclose(filePointerPrecision);
+						fclose(filePointer);
 						testActive = 0;
 						break;
 				}
 				if(testActive == 1) {
 					printf("\n\nsf = %i, bw = %ld, cr = 4/%i.\n", getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					if (switchToAccuracy == 1){
-						fprintf(filePointerAccuracy, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					} else{
-						fprintf(filePointerPrecision, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
-					} 
+					// if (switchToAccuracy == 1){
+					// 	fprintf(filePointerAccuracy, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					// } else{
+					// 	fprintf(filePointerPrecision, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator());
+					// }
+					fprintf(filePointer, "\n\n%s: sf = %i, bw = %ld, cr = 4/%i.\n", datarateTag, getSpreadingFactor(), getBandwidth(), getCodingRateDenominator()); 
 					dataRate  += 1;
 					nbrReceived = 0;
 					printf("Waiting 2 seconds...\n\n");
-					//fprintf(filePointer, "Waiting 2 seconds...\n\n");
+					fprintf(filePointer, "Waiting 2 seconds...\n\n");
 					delay(2000);
 				}
 			}
