@@ -155,7 +155,7 @@ char message[256];
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR12, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31};
+enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR22, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31};
 
 
 /*******************************************************************************
@@ -656,7 +656,7 @@ int main (int argc, char *argv[]) {
 				}
 				switch (dataRate) 
 				{
-					case DR0:
+					case DR11:
 						if(currentDistance == maxDistance){
 							printf("Finished.\n");
 							fclose(filePointer);
@@ -666,7 +666,7 @@ int main (int argc, char *argv[]) {
 							reqNbrReceived = 6;
 							currentDistance += 20;
 							setSpreadingFactor(12);
-							setBandwidth(125E3);
+							setBandwidth(250E3);
 							setCodingRate4(5);
 							strcpy(datarateTag, "DR11");
 							filePointer = fopen("Calibration_DR11", "a");
@@ -700,7 +700,7 @@ int main (int argc, char *argv[]) {
 						filePointer = fopen("Calibration_DR14", "a");
 						break;	
 
-					case DR15
+					case DR15:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -758,7 +758,6 @@ int main (int argc, char *argv[]) {
 					case DR21:
 						// Config
 						reqNbrReceived = 6;
-						switchToAccuracy = 1;
 						setSpreadingFactor(12);
 						setBandwidth(250E3);
 						setCodingRate4(6);
