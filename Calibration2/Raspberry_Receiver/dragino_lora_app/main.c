@@ -185,7 +185,7 @@ int nbrReceived = 5;
 int dataRate = 0;
 
 //distance between units
-int currentDistance = 0;
+int currentDistance = 500;
 
 //maximum distance between units
 int maxDistance = 900;
@@ -645,7 +645,7 @@ int main (int argc, char *argv[]) {
         while(testActive == 1) {
 			if(nbrReceived == reqNbrReceived) {
 				fclose(filePointer);
-				if(dataRate == 11){
+				if(dataRate == 21){
 					dataRate = 0;
 					printf("\n***************************************************************\n");
 					printf("***************************************************************\n");
