@@ -155,7 +155,7 @@ char message[256];
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR12, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31};
+enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR22, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31};
 
 /*******************************************************************************
  *
