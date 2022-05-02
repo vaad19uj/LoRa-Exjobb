@@ -566,16 +566,8 @@ int main (int argc, char *argv[]) {
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR12");
 						break;
-						
-					case DR13:
-						// Config
-						setSpreadingFactor(7);
-						setBandwidth(250E3);
-						setCodingRate4(5);
-						strcpy(datarateTag, "DR13");
-						break;	
 
-					case DR14:
+					case DR13:
 						// Config
 						setSpreadingFactor(8);
 						setBandwidth(250E3);
@@ -583,7 +575,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR14");
 						break;	
 
-					case DR15:
+					case DR14:
 						// Config
 						setSpreadingFactor(9);
 						setBandwidth(250E3);
@@ -591,7 +583,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR15");
 						break;	
 
-					case DR16:
+					case DR15:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -599,7 +591,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR16");
 						break;	
 
-					case DR17:
+					case DR16:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(125E3);
@@ -607,7 +599,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR17");
 						break;	
 
-					case DR18:
+					case DR17:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(500E3);
@@ -615,7 +607,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR18");
 						break;	
 
-					case DR19:
+					case DR18:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -623,7 +615,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR19");
 						break;	
 
-					case DR20:
+					case DR19:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -631,7 +623,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR20");
 						break;	
 
-					case DR21:
+					case DR20:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -640,7 +632,7 @@ int main (int argc, char *argv[]) {
 						break;	
 					
 					//PRECISION STARTS HERE
-					case DR22:
+					case DR21:
 						// Config
 						//switchToAccuracy = 1;
 						setSpreadingFactor(12);
@@ -649,7 +641,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR22");
 						break;
 										
-					case DR23:
+					case DR22:
 						// Config
 						setSpreadingFactor(7);
 						setBandwidth(250E3);
@@ -657,7 +649,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR23");
 						break;
 						
-					case DR24:
+					case DR23:
 						// Config
 						setSpreadingFactor(8);
 						setBandwidth(250E3);
@@ -665,7 +657,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR24");
 						break;	
 
-					case DR25:
+					case DR24:
 						// Config
 						setSpreadingFactor(9);
 						setBandwidth(250E3);
@@ -673,7 +665,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR25");
 						break;	
 
-					case DR26:
+					case DR25:
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
@@ -681,7 +673,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR26");
 						break;	
 
-					case DR27:
+					case DR26:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
@@ -689,7 +681,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR27");
 						break;	
 
-					case DR28:
+					case DR27:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(125E3);
@@ -697,7 +689,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR28");
 						break;	
 
-					case DR29:
+					case DR28:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(500E3);
@@ -705,7 +697,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR29");
 						break;	
 
-					case DR30:
+					case DR29:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
@@ -713,7 +705,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR30");
 						break;	
 
-					case DR31:
+					case DR30:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
@@ -721,7 +713,7 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR31");
 						break;	
 
-					case DR32:
+					case DR31:
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
