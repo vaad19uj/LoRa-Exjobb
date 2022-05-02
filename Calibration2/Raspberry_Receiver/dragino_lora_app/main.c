@@ -155,7 +155,7 @@ char message[256];
 byte receivedbytes;
 
 enum sf_t { SF6=6, SF7, SF8, SF9, SF10, SF11, SF12 };
-enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR12, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31, DR32};
+enum dataRate_t {DR11=0, DR12, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20, DR21, DR12, DR23, DR24, DR25, DR26, DR27, DR28, DR29, DR30, DR31};
 
 
 /*******************************************************************************
@@ -617,10 +617,6 @@ void prepareFiles(){
 	
 	//DR31
 	filePointer = fopen("Calibration_DR31", "w");
-	fclose(filePointer);
-
-	//DR32
-	filePointer = fopen("Calibration_DR32", "w");
 	//fclose(filePointer);
 }
 
@@ -685,10 +681,10 @@ int main (int argc, char *argv[]) {
 						strcpy(datarateTag, "DR12");
 						filePointer = fopen("Calibration_DR12", "a");
 						break;
-						
+
 					case DR13:
 						// Config
-						setSpreadingFactor(7);
+						setSpreadingFactor(8);
 						setBandwidth(250E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR13");
@@ -697,16 +693,16 @@ int main (int argc, char *argv[]) {
 
 					case DR14:
 						// Config
-						setSpreadingFactor(8);
+						setSpreadingFactor(9);
 						setBandwidth(250E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR14");
 						filePointer = fopen("Calibration_DR14", "a");
 						break;	
 
-					case DR15:
+					case DR15
 						// Config
-						setSpreadingFactor(9);
+						setSpreadingFactor(10);
 						setBandwidth(250E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR15");
@@ -716,7 +712,7 @@ int main (int argc, char *argv[]) {
 					case DR16:
 						// Config
 						setSpreadingFactor(10);
-						setBandwidth(250E3);
+						setBandwidth(125E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR16");
 						filePointer = fopen("Calibration_DR16", "a");
@@ -725,7 +721,7 @@ int main (int argc, char *argv[]) {
 					case DR17:
 						// Config
 						setSpreadingFactor(10);
-						setBandwidth(125E3);
+						setBandwidth(500E3);
 						setCodingRate4(5);
 						strcpy(datarateTag, "DR17");
 						filePointer = fopen("Calibration_DR17", "a");
@@ -734,8 +730,8 @@ int main (int argc, char *argv[]) {
 					case DR18:
 						// Config
 						setSpreadingFactor(10);
-						setBandwidth(500E3);
-						setCodingRate4(5);
+						setBandwidth(250E3);
+						setCodingRate4(6);
 						strcpy(datarateTag, "DR18");
 						filePointer = fopen("Calibration_DR18", "a");
 						break;	
@@ -744,7 +740,7 @@ int main (int argc, char *argv[]) {
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
-						setCodingRate4(6);
+						setCodingRate4(7);
 						strcpy(datarateTag, "DR19");
 						filePointer = fopen("Calibration_DR19", "a");
 						break;	
@@ -753,45 +749,45 @@ int main (int argc, char *argv[]) {
 						// Config
 						setSpreadingFactor(10);
 						setBandwidth(250E3);
-						setCodingRate4(7);
+						setCodingRate4(8);
 						strcpy(datarateTag, "DR20");
 						filePointer = fopen("Calibration_DR20", "a");
 						break;	
-
-					case DR21:
-						// Config
-						setSpreadingFactor(10);
-						setBandwidth(250E3);
-						setCodingRate4(8);
-						strcpy(datarateTag, "DR21");
-						filePointer = fopen("Calibration_DR21", "a");
-						break;	
 					
 					//PRECISION STARTS HERE
-					case DR22:
+					case DR21:
 						// Config
 						reqNbrReceived = 6;
 						switchToAccuracy = 1;
 						setSpreadingFactor(12);
 						setBandwidth(250E3);
 						setCodingRate4(6);
-						strcpy(datarateTag, "DR22");
-						filePointer = fopen("Calibration_DR22", "a");
+						strcpy(datarateTag, "DR21");
+						filePointer = fopen("Calibration_DR21", "a");
 						break;
 										
-					case DR23:
+					case DR22:
 						// Config
 						reqNbrReceived = 5;
 						setSpreadingFactor(7);
 						setBandwidth(250E3);
 						setCodingRate4(6);
-						strcpy(datarateTag, "DR23");
-						filePointer = fopen("Calibration_DR23", "a");
+						strcpy(datarateTag, "DR22");
+						filePointer = fopen("Calibration_DR22", "a");
 						break;
 						
-					case DR24:
+					case DR23:
 						// Config
 						setSpreadingFactor(8);
+						setBandwidth(250E3);
+						setCodingRate4(6);
+						strcpy(datarateTag, "DR23");
+						filePointer = fopen("Calibration_DR23", "a");
+						break;	
+
+					case DR24:
+						// Config
+						setSpreadingFactor(9);
 						setBandwidth(250E3);
 						setCodingRate4(6);
 						strcpy(datarateTag, "DR24");
@@ -800,7 +796,7 @@ int main (int argc, char *argv[]) {
 
 					case DR25:
 						// Config
-						setSpreadingFactor(9);
+						setSpreadingFactor(10);
 						setBandwidth(250E3);
 						setCodingRate4(6);
 						strcpy(datarateTag, "DR25");
@@ -809,7 +805,7 @@ int main (int argc, char *argv[]) {
 
 					case DR26:
 						// Config
-						setSpreadingFactor(10);
+						setSpreadingFactor(11);
 						setBandwidth(250E3);
 						setCodingRate4(6);
 						strcpy(datarateTag, "DR26");
@@ -819,7 +815,7 @@ int main (int argc, char *argv[]) {
 					case DR27:
 						// Config
 						setSpreadingFactor(11);
-						setBandwidth(250E3);
+						setBandwidth(125E3);
 						setCodingRate4(6);
 						strcpy(datarateTag, "DR27");
 						filePointer = fopen("Calibration_DR27", "a");
@@ -828,7 +824,7 @@ int main (int argc, char *argv[]) {
 					case DR28:
 						// Config
 						setSpreadingFactor(11);
-						setBandwidth(125E3);
+						setBandwidth(500E3);
 						setCodingRate4(6);
 						strcpy(datarateTag, "DR28");
 						filePointer = fopen("Calibration_DR28", "a");
@@ -837,8 +833,8 @@ int main (int argc, char *argv[]) {
 					case DR29:
 						// Config
 						setSpreadingFactor(11);
-						setBandwidth(500E3);
-						setCodingRate4(6);
+						setBandwidth(250E3);
+						setCodingRate4(5);
 						strcpy(datarateTag, "DR29");
 						filePointer = fopen("Calibration_DR29", "a");
 						break;	
@@ -847,7 +843,7 @@ int main (int argc, char *argv[]) {
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
-						setCodingRate4(5);
+						setCodingRate4(7);
 						strcpy(datarateTag, "DR30");
 						filePointer = fopen("Calibration_DR30", "a");
 						break;	
@@ -856,18 +852,9 @@ int main (int argc, char *argv[]) {
 						// Config
 						setSpreadingFactor(11);
 						setBandwidth(250E3);
-						setCodingRate4(7);
+						setCodingRate4(8);
 						strcpy(datarateTag, "DR31");
 						filePointer = fopen("Calibration_DR31", "a");
-						break;	
-
-					case DR32:
-						// Config
-						setSpreadingFactor(11);
-						setBandwidth(250E3);
-						setCodingRate4(8);
-						strcpy(datarateTag, "DR32");
-						filePointer = fopen("Calibration_DR32", "a");
 						break;
 				
 					default:
