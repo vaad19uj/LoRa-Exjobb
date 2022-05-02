@@ -161,21 +161,7 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-      case DR13:
-        loraSerial.println("radio set sf sf7");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("sf - " + str);
-    
-        loraSerial.println("radio set bw 250");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("bw - " + str);
-    
-        loraSerial.println("radio set cr 4/5");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("cr - " + str);
-        break;
-
-       case DR14:
+       case DR13:
         loraSerial.println("radio set sf sf8");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -189,8 +175,22 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-       case DR15:
+       case DR14:
         loraSerial.println("radio set sf sf9");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 250");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/5");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR15:
+        loraSerial.println("radio set sf sf10");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
@@ -208,7 +208,7 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 250");
+        loraSerial.println("radio set bw 125");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
@@ -222,7 +222,7 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 125");
+        loraSerial.println("radio set bw 500");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
@@ -236,11 +236,11 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 500");
+        loraSerial.println("radio set bw 250");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
-        loraSerial.println("radio set cr 4/5");
+        loraSerial.println("radio set cr 4/6");
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
         break;
@@ -254,26 +254,12 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
-        loraSerial.println("radio set cr 4/6");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("cr - " + str);
-        break;
-
-      case DR20:
-        loraSerial.println("radio set sf sf10");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("sf - " + str);
-    
-        loraSerial.println("radio set bw 250");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("bw - " + str);
-    
         loraSerial.println("radio set cr 4/7");
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
         break;
 
-      case DR21:
+      case DR20:
         loraSerial.println("radio set sf sf10");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -288,7 +274,7 @@ void loop() {
         break;
       
       //PRECISION STARTS HERE!!!!!!
-      case DR22:
+      case DR21:
         loraSerial.println("radio set sf sf12");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -302,7 +288,7 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-      case DR23:
+      case DR22:
         loraSerial.println("radio set sf sf7");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -316,7 +302,7 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-      case DR24:
+      case DR23:
         loraSerial.println("radio set sf sf8");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -330,7 +316,7 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-       case DR25:
+       case DR24:
         loraSerial.println("radio set sf sf9");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
@@ -344,8 +330,22 @@ void loop() {
         Serial.println("cr - " + str);
         break;
 
-       case DR26:
+       case DR25:
         loraSerial.println("radio set sf sf10");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("sf - " + str);
+    
+        loraSerial.println("radio set bw 250");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("bw - " + str);
+    
+        loraSerial.println("radio set cr 4/6");
+        str = loraSerial.readStringUntil('\n');
+        Serial.println("cr - " + str);
+        break;
+
+      case DR26:
+        loraSerial.println("radio set sf sf11");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
@@ -363,7 +363,7 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 250");
+        loraSerial.println("radio set bw 125");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
@@ -377,7 +377,7 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 125");
+        loraSerial.println("radio set bw 500");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
@@ -391,11 +391,11 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
     
-        loraSerial.println("radio set bw 500");
+        loraSerial.println("radio set bw 250");
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
-        loraSerial.println("radio set cr 4/6");
+        loraSerial.println("radio set cr 4/5");
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
         break;
@@ -409,26 +409,12 @@ void loop() {
         str = loraSerial.readStringUntil('\n');
         Serial.println("bw - " + str);
     
-        loraSerial.println("radio set cr 4/5");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("cr - " + str);
-        break;
-
-      case DR31:
-        loraSerial.println("radio set sf sf11");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("sf - " + str);
-    
-        loraSerial.println("radio set bw 250");
-        str = loraSerial.readStringUntil('\n');
-        Serial.println("bw - " + str);
-    
         loraSerial.println("radio set cr 4/7");
         str = loraSerial.readStringUntil('\n');
         Serial.println("cr - " + str);
         break;
 
-      case DR32:
+      case DR31:
         loraSerial.println("radio set sf sf11");
         str = loraSerial.readStringUntil('\n');
         Serial.println("sf - " + str);
