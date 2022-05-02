@@ -44,6 +44,36 @@ def rssitodistance(rssi, dr):
         #m = 
     elif dr == 21:
         #k = 
+        #m =
+    elif dr == 22:
+        #k = 
+        #m = 
+    elif dr == 23:
+        #k = 
+        #m = 
+    elif dr == 24:
+        #k = 
+        #m = 
+    elif dr == 25:
+        #k = 
+        #m = 
+    elif dr == 26:
+        #k = 
+        #m = 
+    elif dr == 27:
+        #k = 
+        #m = 
+    elif dr == 28:
+        #k = 
+        #m = 
+    elif dr == 29:
+        #k = 
+        #m = 
+    elif dr == 30:
+        #k = 
+        #m = 
+    elif dr == 31:
+        #k = 
         #m = 
     return(k*rssi+m)
 
