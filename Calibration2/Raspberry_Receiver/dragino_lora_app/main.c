@@ -666,7 +666,7 @@ int main (int argc, char *argv[]) {
 							reqNbrReceived = 6;
 							currentDistance += 20;
 							setSpreadingFactor(12);
-							setBandwidth(125E3);
+							setBandwidth(250E3);
 							setCodingRate4(5);
 							strcpy(datarateTag, "DR11");
 							filePointer = fopen("Calibration_DR11", "a");
