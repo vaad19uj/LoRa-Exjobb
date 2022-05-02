@@ -637,7 +637,7 @@ int main (int argc, char *argv[]) {
         opmode(OPMODE_RX);
 		
 		int testActive = 1;
-		//prepareFiles();
+		prepareFiles();
 		
 		printf("Setup finished.");
         printf("------------------\n");
