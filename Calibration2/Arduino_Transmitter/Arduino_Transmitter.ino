@@ -16,7 +16,7 @@ int messageNbr = 7;
 int reqMessageNbr = 7;
 String message;
 int dataRate = 0;
-int currentDistance = 120;
+int currentDistance = 500;
 int maxDistance = 900;
 
 void setup() {

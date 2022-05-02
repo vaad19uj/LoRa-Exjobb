@@ -185,7 +185,7 @@ int nbrReceived = 5;
 int dataRate = 0;
 
 //distance between units
-int currentDistance = 120;
+int currentDistance = 500;
 
 //maximum distance between units
 int maxDistance = 900;
