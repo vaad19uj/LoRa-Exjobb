@@ -16,7 +16,7 @@ int messageNbr = 7;
 int reqMessageNbr = 7;
 String message;
 int dataRate = 0;
-int currentDistance = 0;
+int currentDistance = 120;
 int maxDistance = 900;
 
 void setup() {
@@ -132,7 +132,7 @@ void loop() {
   led_on();
 
   if(messageNbr == reqMessageNbr) {
-    if(dataRate == 11){
+    if(dataRate == 21){
       dataRate = 0;
       Serial.println("Move receiver! Waiting 20 seconds before proceeding with DR0...");
       delay(20000);

@@ -185,7 +185,7 @@ int nbrReceived = 5;
 int dataRate = 0;
 
 //distance between units
-int currentDistance = 0;
+int currentDistance = 120;
 
 //maximum distance between units
 int maxDistance = 900;
@@ -637,7 +637,7 @@ int main (int argc, char *argv[]) {
         opmode(OPMODE_RX);
 		
 		int testActive = 1;
-		prepareFiles();
+		//prepareFiles();
 		
 		printf("Setup finished.");
         printf("------------------\n");
