@@ -52,7 +52,7 @@ for i in range(1,4):
     f_new = open('C:\\Users\\Adina\\source\\repos\\Exjobb\\LoRa-Exjobb\\Testbed_2\\Testbed2_results\\Coordinates\\Position' + str(i) + '_AbsError.txt', "w")
     txt = f.read()
     for dr in range(11,32):
-        distance = re.findall(regex[dr], txt)
+        distance = re.findall(regex[dr-11], txt)
         print("\n")
         f_new.write("DR" + str(dr) + "\n")
         index = 0
