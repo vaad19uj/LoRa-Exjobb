@@ -1,0 +1,315 @@
+
+DR12 - 20cm - 1: Packet RSSI: -9    
+DR12 - 20cm - 2: Packet RSSI: -9    
+DR12 - 20cm - 3: Packet RSSI: -9    
+DR12 - 20cm - 4: Packet RSSI: -9    
+DR12 - 20cm - 5: Packet RSSI: -9    
+DR12 - 20cm - 6: Packet RSSI: -9    
+
+DR12 - 40cm - 1: Packet RSSI: -13    
+DR12 - 40cm - 2: Packet RSSI: -13    
+DR12 - 40cm - 3: Packet RSSI: -13    
+DR12 - 40cm - 4: Packet RSSI: -13    
+DR12 - 40cm - 5: Packet RSSI: -12    
+DR12 - 40cm - 6: Packet RSSI: -13    
+
+DR12 - 60cm - 1: Packet RSSI: -64    
+DR12 - 60cm - 2: Packet RSSI: -64    
+DR12 - 60cm - 3: Packet RSSI: -65    
+DR12 - 60cm - 4: Packet RSSI: -65    
+DR12 - 60cm - 5: Packet RSSI: -65    
+DR12 - 60cm - 6: Packet RSSI: -64    
+
+DR12 - 80cm - 1: Packet RSSI: -69    
+DR12 - 80cm - 2: Packet RSSI: -70    
+DR12 - 80cm - 3: Packet RSSI: -69    
+DR12 - 80cm - 4: Packet RSSI: -69    
+DR12 - 80cm - 5: Packet RSSI: -69    
+DR12 - 80cm - 6: Packet RSSI: -69    
+
+DR12 - 100cm - 1: Packet RSSI: -66    
+DR12 - 100cm - 2: Packet RSSI: -66    
+DR12 - 100cm - 3: Packet RSSI: -66    
+DR12 - 100cm - 4: Packet RSSI: -65    
+DR12 - 100cm - 5: Packet RSSI: -66    
+DR12 - 100cm - 6: Packet RSSI: -66    
+
+DR12 - 120cm - 1: Packet RSSI: -68    
+DR12 - 120cm - 2: Packet RSSI: -68    
+DR12 - 120cm - 3: Packet RSSI: -68    
+DR12 - 120cm - 4: Packet RSSI: -68    
+DR12 - 120cm - 5: Packet RSSI: -68    
+DR12 - 120cm - 6: Packet RSSI: -68      
+
+DR12 - 140cm - 1: Packet RSSI: -68    
+DR12 - 140cm - 2: Packet RSSI: -69    
+DR12 - 140cm - 3: Packet RSSI: -68    
+DR12 - 140cm - 4: Packet RSSI: -69    
+DR12 - 140cm - 5: Packet RSSI: -68    
+DR12 - 140cm - 6: Packet RSSI: -68    
+
+DR12 - 160cm - 1: Packet RSSI: -71    
+DR12 - 160cm - 2: Packet RSSI: -75    
+DR12 - 160cm - 3: Packet RSSI: -76    
+DR12 - 160cm - 4: Packet RSSI: -75    
+DR12 - 160cm - 5: Packet RSSI: -76    
+DR12 - 160cm - 6: Packet RSSI: -77    
+
+DR12 - 180cm - 1: Packet RSSI: -78    
+DR12 - 180cm - 2: Packet RSSI: -78    
+DR12 - 180cm - 3: Packet RSSI: -78    
+DR12 - 180cm - 4: Packet RSSI: -78    
+DR12 - 180cm - 5: Packet RSSI: -78    
+DR12 - 180cm - 6: Packet RSSI: -78    
+
+DR12 - 200cm - 1: Packet RSSI: -75    
+DR12 - 200cm - 2: Packet RSSI: -75    
+DR12 - 200cm - 3: Packet RSSI: -74    
+DR12 - 200cm - 4: Packet RSSI: -74    
+DR12 - 200cm - 5: Packet RSSI: -74    
+DR12 - 200cm - 6: Packet RSSI: -75    
+
+DR12 - 220cm - 1: Packet RSSI: -74    
+DR12 - 220cm - 2: Packet RSSI: -74    
+DR12 - 220cm - 3: Packet RSSI: -73    
+DR12 - 220cm - 4: Packet RSSI: -74    
+DR12 - 220cm - 5: Packet RSSI: -74    
+DR12 - 220cm - 6: Packet RSSI: -73    
+
+DR12 - 240cm - 1: Packet RSSI: -73    
+DR12 - 240cm - 2: Packet RSSI: -73    
+DR12 - 240cm - 3: Packet RSSI: -74    
+DR12 - 240cm - 4: Packet RSSI: -74    
+DR12 - 240cm - 5: Packet RSSI: -73    
+DR12 - 240cm - 6: Packet RSSI: -74    
+
+DR12 - 260cm - 1: Packet RSSI: -82    
+DR12 - 260cm - 2: Packet RSSI: -83    
+DR12 - 260cm - 3: Packet RSSI: -83    
+DR12 - 260cm - 4: Packet RSSI: -82    
+DR12 - 260cm - 5: Packet RSSI: -82    
+DR12 - 260cm - 6: Packet RSSI: -83    
+
+DR12 - 280cm - 1: Packet RSSI: -75    
+DR12 - 280cm - 2: Packet RSSI: -75    
+DR12 - 280cm - 3: Packet RSSI: -75    
+DR12 - 280cm - 4: Packet RSSI: -75    
+DR12 - 280cm - 5: Packet RSSI: -75    
+DR12 - 280cm - 6: Packet RSSI: -75    
+
+DR12 - 300cm - 1: Packet RSSI: -75    
+DR12 - 300cm - 2: Packet RSSI: -76    
+DR12 - 300cm - 3: Packet RSSI: -75    
+DR12 - 300cm - 4: Packet RSSI: -76    
+DR12 - 300cm - 5: Packet RSSI: -76    
+DR12 - 300cm - 6: Packet RSSI: -76    
+
+DR12 - 320cm - 1: Packet RSSI: -76    
+DR12 - 320cm - 2: Packet RSSI: -77    
+DR12 - 320cm - 3: Packet RSSI: -78    
+DR12 - 320cm - 4: Packet RSSI: -77    
+DR12 - 320cm - 5: Packet RSSI: -77    
+DR12 - 320cm - 6: Packet RSSI: -77    
+
+DR12 - 340cm - 1: Packet RSSI: -75    
+DR12 - 340cm - 2: Packet RSSI: -75    
+DR12 - 340cm - 3: Packet RSSI: -75    
+DR12 - 340cm - 4: Packet RSSI: -74    
+DR12 - 340cm - 5: Packet RSSI: -74    
+DR12 - 340cm - 6: Packet RSSI: -75    
+
+DR12 - 360cm - 1: Packet RSSI: -84    
+DR12 - 360cm - 2: Packet RSSI: -84    
+DR12 - 360cm - 3: Packet RSSI: -84    
+DR12 - 360cm - 4: Packet RSSI: -85    
+DR12 - 360cm - 5: Packet RSSI: -82    
+DR12 - 360cm - 6: Packet RSSI: -81    
+
+DR12 - 380cm - 1: Packet RSSI: -77    
+DR12 - 380cm - 2: Packet RSSI: -78    
+DR12 - 380cm - 3: Packet RSSI: -78    
+DR12 - 380cm - 4: Packet RSSI: -78    
+DR12 - 380cm - 5: Packet RSSI: -78    
+DR12 - 380cm - 6: Packet RSSI: -78    
+
+DR12 - 400cm - 1: Packet RSSI: -78    
+DR12 - 400cm - 2: Packet RSSI: -78    
+DR12 - 400cm - 3: Packet RSSI: -78    
+DR12 - 400cm - 4: Packet RSSI: -78    
+DR12 - 400cm - 5: Packet RSSI: -78    
+DR12 - 400cm - 6: Packet RSSI: -77    
+
+DR12 - 420cm - 1: Packet RSSI: -78    
+DR12 - 420cm - 2: Packet RSSI: -78    
+DR12 - 420cm - 3: Packet RSSI: -78    
+DR12 - 420cm - 4: Packet RSSI: -78    
+DR12 - 420cm - 5: Packet RSSI: -78    
+DR12 - 420cm - 6: Packet RSSI: -78    
+
+DR12 - 440cm - 1: Packet RSSI: -82    
+DR12 - 440cm - 2: Packet RSSI: -82    
+DR12 - 440cm - 3: Packet RSSI: -82    
+DR12 - 440cm - 4: Packet RSSI: -81    
+DR12 - 440cm - 5: Packet RSSI: -81    
+DR12 - 440cm - 6: Packet RSSI: -81    
+
+DR12 - 460cm - 1: Packet RSSI: -86    
+DR12 - 460cm - 2: Packet RSSI: -86    
+DR12 - 460cm - 3: Packet RSSI: -86    
+DR12 - 460cm - 4: Packet RSSI: -86    
+DR12 - 460cm - 5: Packet RSSI: -86    
+DR12 - 460cm - 6: Packet RSSI: -86    
+
+DR12 - 480cm - 1: Packet RSSI: -79    
+DR12 - 480cm - 2: Packet RSSI: -79    
+DR12 - 480cm - 3: Packet RSSI: -79    
+DR12 - 480cm - 4: Packet RSSI: -79    
+DR12 - 480cm - 5: Packet RSSI: -79    
+DR12 - 480cm - 6: Packet RSSI: -79    
+
+DR12 - 500cm - 1: Packet RSSI: -79    
+DR12 - 500cm - 2: Packet RSSI: -80    
+DR12 - 500cm - 3: Packet RSSI: -80    
+DR12 - 500cm - 4: Packet RSSI: -79    
+DR12 - 500cm - 5: Packet RSSI: -79    
+DR12 - 500cm - 6: Packet RSSI: -80    
+
+DR12 - 520cm - 1: Packet RSSI: -81    
+DR12 - 520cm - 2: Packet RSSI: -81    
+DR12 - 520cm - 3: Packet RSSI: -81    
+DR12 - 520cm - 4: Packet RSSI: -81    
+DR12 - 520cm - 5: Packet RSSI: -81    
+DR12 - 520cm - 6: Packet RSSI: -79    
+
+DR12 - 540cm - 1: Packet RSSI: -86    
+DR12 - 540cm - 2: Packet RSSI: -86    
+DR12 - 540cm - 3: Packet RSSI: -85    
+DR12 - 540cm - 4: Packet RSSI: -84    
+DR12 - 540cm - 5: Packet RSSI: -84    
+DR12 - 540cm - 6: Packet RSSI: -85    
+
+DR12 - 560cm - 1: Packet RSSI: -87    
+DR12 - 560cm - 2: Packet RSSI: -87    
+DR12 - 560cm - 3: Packet RSSI: -88    
+DR12 - 560cm - 4: Packet RSSI: -89    
+DR12 - 560cm - 5: Packet RSSI: -89    
+DR12 - 560cm - 6: Packet RSSI: -88    
+
+DR12 - 580cm - 1: Packet RSSI: -79    
+DR12 - 580cm - 2: Packet RSSI: -79    
+DR12 - 580cm - 3: Packet RSSI: -79    
+DR12 - 580cm - 4: Packet RSSI: -79    
+DR12 - 580cm - 5: Packet RSSI: -79    
+DR12 - 580cm - 6: Packet RSSI: -79    
+
+DR12 - 600cm - 1: Packet RSSI: -89    
+DR12 - 600cm - 2: Packet RSSI: -89    
+DR12 - 600cm - 3: Packet RSSI: -89    
+DR12 - 600cm - 4: Packet RSSI: -90    
+DR12 - 600cm - 5: Packet RSSI: -90    
+DR12 - 600cm - 6: Packet RSSI: -90    
+
+DR12 - 620cm - 1: Packet RSSI: -80    
+DR12 - 620cm - 2: Packet RSSI: -80    
+DR12 - 620cm - 3: Packet RSSI: -80    
+DR12 - 620cm - 4: Packet RSSI: -80    
+DR12 - 620cm - 5: Packet RSSI: -80    
+DR12 - 620cm - 6: Packet RSSI: -80    
+
+DR12 - 640cm - 1: Packet RSSI: -85    
+DR12 - 640cm - 2: Packet RSSI: -85    
+DR12 - 640cm - 3: Packet RSSI: -85    
+DR12 - 640cm - 4: Packet RSSI: -85    
+DR12 - 640cm - 5: Packet RSSI: -85    
+DR12 - 640cm - 6: Packet RSSI: -85    
+
+DR12 - 660cm - 1: Packet RSSI: -84    
+DR12 - 660cm - 2: Packet RSSI: -84    
+DR12 - 660cm - 3: Packet RSSI: -84    
+DR12 - 660cm - 4: Packet RSSI: -85    
+DR12 - 660cm - 5: Packet RSSI: -84    
+DR12 - 660cm - 6: Packet RSSI: -85    
+
+DR12 - 680cm - 1: Packet RSSI: -84    
+DR12 - 680cm - 2: Packet RSSI: -84    
+DR12 - 680cm - 3: Packet RSSI: -84    
+DR12 - 680cm - 4: Packet RSSI: -85    
+DR12 - 680cm - 5: Packet RSSI: -84    
+DR12 - 680cm - 6: Packet RSSI: -83    
+
+DR12 - 700cm - 1: Packet RSSI: -87    
+DR12 - 700cm - 2: Packet RSSI: -87    
+DR12 - 700cm - 3: Packet RSSI: -87    
+DR12 - 700cm - 4: Packet RSSI: -87    
+DR12 - 700cm - 5: Packet RSSI: -87    
+DR12 - 700cm - 6: Packet RSSI: -87    
+
+DR12 - 720cm - 1: Packet RSSI: -93    
+DR12 - 720cm - 2: Packet RSSI: -94    
+DR12 - 720cm - 3: Packet RSSI: -96    
+DR12 - 720cm - 4: Packet RSSI: -98    
+DR12 - 720cm - 5: Packet RSSI: -101    
+DR12 - 720cm - 6: Packet RSSI: -100    
+
+DR12 - 740cm - 1: Packet RSSI: -82    
+DR12 - 740cm - 2: Packet RSSI: -82    
+DR12 - 740cm - 3: Packet RSSI: -82    
+DR12 - 740cm - 4: Packet RSSI: -82    
+DR12 - 740cm - 5: Packet RSSI: -82    
+DR12 - 740cm - 6: Packet RSSI: -82    
+
+DR12 - 760cm - 1: Packet RSSI: -82    
+DR12 - 760cm - 2: Packet RSSI: -82    
+DR12 - 760cm - 3: Packet RSSI: -82    
+DR12 - 760cm - 4: Packet RSSI: -82    
+DR12 - 760cm - 5: Packet RSSI: -82    
+DR12 - 760cm - 6: Packet RSSI: -82    
+
+DR12 - 780cm - 1: Packet RSSI: -84    
+DR12 - 780cm - 2: Packet RSSI: -83    
+DR12 - 780cm - 3: Packet RSSI: -84    
+DR12 - 780cm - 4: Packet RSSI: -84    
+DR12 - 780cm - 5: Packet RSSI: -83    
+DR12 - 780cm - 6: Packet RSSI: -83    
+
+DR12 - 800cm - 1: Packet RSSI: -87    
+DR12 - 800cm - 2: Packet RSSI: -86    
+DR12 - 800cm - 3: Packet RSSI: -86    
+DR12 - 800cm - 4: Packet RSSI: -86    
+DR12 - 800cm - 5: Packet RSSI: -86    
+DR12 - 800cm - 6: Packet RSSI: -86    
+
+DR12 - 820cm - 1: Packet RSSI: -91    
+DR12 - 820cm - 2: Packet RSSI: -91    
+DR12 - 820cm - 3: Packet RSSI: -91    
+DR12 - 820cm - 4: Packet RSSI: -91    
+DR12 - 820cm - 5: Packet RSSI: -91    
+DR12 - 820cm - 6: Packet RSSI: -91    
+
+DR12 - 840cm - 1: Packet RSSI: -88    
+DR12 - 840cm - 2: Packet RSSI: -89    
+DR12 - 840cm - 3: Packet RSSI: -89    
+DR12 - 840cm - 4: Packet RSSI: -89    
+DR12 - 840cm - 5: Packet RSSI: -88    
+DR12 - 840cm - 6: Packet RSSI: -90    
+
+DR12 - 860cm - 1: Packet RSSI: -84    
+DR12 - 860cm - 2: Packet RSSI: -84    
+DR12 - 860cm - 3: Packet RSSI: -84    
+DR12 - 860cm - 4: Packet RSSI: -84    
+DR12 - 860cm - 5: Packet RSSI: -85    
+DR12 - 860cm - 6: Packet RSSI: -84    
+
+DR12 - 880cm - 1: Packet RSSI: -82    
+DR12 - 880cm - 2: Packet RSSI: -82    
+DR12 - 880cm - 3: Packet RSSI: -82    
+DR12 - 880cm - 4: Packet RSSI: -82    
+DR12 - 880cm - 5: Packet RSSI: -81    
+DR12 - 880cm - 6: Packet RSSI: -81    
+
+DR12 - 900cm - 1: Packet RSSI: -83    
+DR12 - 900cm - 2: Packet RSSI: -84    
+DR12 - 900cm - 3: Packet RSSI: -84    
+DR12 - 900cm - 4: Packet RSSI: -83    
+DR12 - 900cm - 5: Packet RSSI: -83    
+DR12 - 900cm - 6: Packet RSSI: -84    
